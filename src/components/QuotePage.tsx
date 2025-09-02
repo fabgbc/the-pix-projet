@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { 
-  ArrowLeft, 
-  MapPin, 
+import {
+  ArrowLeft,
+  MapPin,
   Camera,
   Users,
   Heart,
@@ -16,6 +16,7 @@ import {
   Phone,
   Mail
 } from 'lucide-react';
+import HomeSectionLink from './HomeSectionLink';
 
 interface QuotePageProps {
   onBack: () => void;
@@ -170,14 +171,14 @@ const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, 
               >
                 Photobooth sur mesure
               </button>
-              <a href="#mariages" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Événements Privés</a>
+              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
               <button 
                 onClick={onBack}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
               </button>
-              <a href="#galerie" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Galerie</a>
+              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
               <button className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold">
                 Devis Gratuit
               </button>

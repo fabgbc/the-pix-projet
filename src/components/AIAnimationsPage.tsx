@@ -1,10 +1,10 @@
 import React from 'react';
-import { 
-  ArrowLeft, 
-  Camera, 
-  Sparkles, 
-  Users, 
-  Zap, 
+import {
+  ArrowLeft,
+  Camera,
+  Sparkles,
+  Users,
+  Zap,
   Eye,
   Palette,
   Clock,
@@ -26,6 +26,7 @@ import {
   Facebook,
   Linkedin
 } from 'lucide-react';
+import HomeSectionLink from './HomeSectionLink';
 
 interface AIAnimationsPageProps {
   onBack: () => void;
@@ -69,11 +70,11 @@ const AIAnimationsPage: React.FC<AIAnimationsPageProps> = ({ onBack, onDemoReque
               >
                 Photobooth sur mesure
               </button>
-              <a href="#mariages" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Événements Privés</a>
+              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
               <span className="text-yellow-500 font-medium cursor-default">
                 Animations IA
               </span>
-              <a href="#galerie" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Galerie</a>
+              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
               <button 
                 onClick={onQuoteRequest}
                 className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
