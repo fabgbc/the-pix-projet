@@ -13,7 +13,6 @@ import {
   Zap,
   Share2,
   Eye,
-  ChevronRight,
   Phone,
   Mail,
   Instagram,

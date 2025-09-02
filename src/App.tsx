@@ -14,18 +14,14 @@ import Paris5Page from './components/Paris5Page';
 import Paris6Page from './components/Paris6Page';
 import Paris7Page from './components/Paris7Page';
 import { 
-  Camera, 
-  Sparkles, 
-  Users, 
-  Heart, 
-  Zap, 
-  Eye, 
+  Camera,
+  Sparkles,
+  Users,
+  Heart,
+  Zap,
   Star,
-  ChevronRight,
-  Play,
   Award,
   Palette,
-  Wifi,
   Menu,
   X,
   ArrowRight,

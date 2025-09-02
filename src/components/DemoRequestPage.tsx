@@ -8,8 +8,6 @@ import {
   Calendar, 
   MapPin,
   Bot,
-  Wand2,
-  Eye,
   Check,
   ChevronRight,
   Phone,
