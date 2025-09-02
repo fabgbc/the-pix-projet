@@ -186,11 +186,15 @@ function App() {
   }
 
   if (showAIAnimations) {
-    return <AIAnimationsPage 
-      onBack={() => setShowAIAnimations(false)} 
+    return <AIAnimationsPage
+      onBack={() => setShowAIAnimations(false)}
       onDemoRequest={() => {
         setShowAIAnimations(false);
         setShowDemoRequest(true);
+      }}
+      onPhotoboothDetails={() => {
+        setShowAIAnimations(false);
+        setShowPhotoboothDetails(true);
       }}
       onSEOPage={() => {
         setShowAIAnimations(false);
