@@ -19,7 +19,6 @@ import {
   Shuffle,
   Timer,
   Trophy,
-  Play,
   Phone,
   Mail,
   MapPin,
