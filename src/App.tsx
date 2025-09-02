@@ -741,12 +741,12 @@ function App() {
             <div className="lg:hidden mt-4 pb-4 border-t border-gray-100">
               <div className="flex flex-col space-y-4 pt-4">
                 <a href="#services" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Accueil</a>
-                <Link 
-                  to="/location-photobooth-paris"
+                <button
+                  onClick={() => setShowPhotoboothDetails(true)}
                   className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
                 >
                   Photobooth sur mesure
-                </Link>
+                </button>
                 <a href="#mariages" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Événements Privés</a>
                 <button 
                   onClick={() => setShowAIAnimations(true)}

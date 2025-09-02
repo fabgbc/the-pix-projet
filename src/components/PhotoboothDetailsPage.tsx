@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
   ArrowLeft,
   Camera,
   Sparkles,
@@ -19,10 +19,10 @@ import {
   Facebook,
   Linkedin
 } from 'lucide-react';
+import HomeSectionLink from './HomeSectionLink';
 
 interface PhotoboothDetailsPageProps {
   onBack: () => void;
-  onAIAnimations?: () => void;
   onAIAnimations?: () => void;
   onParis1Page?: () => void;
   onParis2Page?: () => void;
@@ -58,14 +58,14 @@ const PhotoboothDetailsPage: React.FC<PhotoboothDetailsPageProps> = ({ onBack, o
               <span className="text-yellow-500 font-medium cursor-default">
                 Photobooth sur mesure
               </span>
-              <a href="#mariages" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Événements Privés</a>
+              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
               <button 
                 onClick={onAIAnimations}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
               </button>
-              <a href="#galerie" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Galerie</a>
+              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
               <button 
                 onClick={onQuoteRequest}
                 className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
