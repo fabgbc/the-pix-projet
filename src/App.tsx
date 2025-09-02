@@ -144,8 +144,12 @@ function App() {
   }
 
   if (showPhotoboothDetails) {
-    return <PhotoboothDetailsPage 
-      onBack={() => setShowPhotoboothDetails(false)} 
+    return <PhotoboothDetailsPage
+      onBack={() => setShowPhotoboothDetails(false)}
+      onAIAnimations={() => {
+        setShowPhotoboothDetails(false);
+        setShowAIAnimations(true);
+      }}
       onSEOPage={() => {
         setShowPhotoboothDetails(false);
         setShowSEOPage(true);
