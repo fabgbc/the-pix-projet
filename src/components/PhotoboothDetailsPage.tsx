@@ -11,15 +11,10 @@ import {
   Settings,
   Monitor,
   Play,
-  ArrowRight,
-  Phone,
-  Mail,
-  MapPin,
-  Instagram,
-  Facebook,
-  Linkedin
+  ArrowRight
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
+import Footer from './Footer';
 
 interface PhotoboothDetailsPageProps {
   onBack: () => void;
@@ -537,114 +532,17 @@ const PhotoboothDetailsPage: React.FC<PhotoboothDetailsPageProps> = ({ onBack, o
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-16 border-t border-gray-100" role="contentinfo">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-4 gap-8 mb-12">
-            <div className="lg:col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <Camera className="w-6 h-6 text-black" />
-                </div>
-                <span className="text-2xl font-bold text-black">BoostPix</span>
-              </div>
-              <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
-                Spécialiste des expériences visuelles premium pour vos événements d'exception. 
-                Photobooths sur mesure, technologie connectée et décors immersifs.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                  <Instagram className="w-5 h-5 text-gray-600" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                  <Facebook className="w-5 h-5 text-gray-600" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                  <Linkedin className="w-5 h-5 text-gray-600" />
-                </a>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-bold text-black mb-6 text-lg">Services</h3>
-              <div className="space-y-3">
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Photobooths sur mesure</a>
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Technologie connectée</a>
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Décors immersifs</a>
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Animation événementielle</a>
-                <button 
-                  onClick={onParis1Page}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 1
-                </button>
-                <button 
-                  onClick={onParis2Page}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 2
-                </button>
-                <button 
-                  onClick={onParis3Page}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 3
-                </button>
-                <button 
-                  onClick={onParis4Page}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 4
-                </button>
-                <button 
-                  onClick={onParis5Page}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 5
-                </button>
-                <button 
-                  onClick={onParis6Page}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 6
-                </button>
-                <button 
-                  onClick={onParis7Page}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 7
-                </button>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-bold text-black mb-6 text-lg">Contact</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-yellow-500" />
-                  <a href="tel:+33123456789" className="text-gray-600 hover:text-yellow-500 transition-colors">+33 1 23 45 67 89</a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-yellow-500" />
-                  <a href="mailto:contact@boostpix.fr" className="text-gray-600 hover:text-yellow-500 transition-colors">contact@boostpix.fr</a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-yellow-500" />
-                  <span className="text-gray-600">Paris - Lyon - Marseille</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 mb-4 md:mb-0">&copy; 2024 BoostPix. Tous droits réservés.</p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">Mentions légales</a>
-              <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">Politique de confidentialité</a>
-              <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">CGV</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer
+        arrondissementLinks={[
+          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
+          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
+          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
+          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
+          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
+          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
+          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
+        ]}
+      />
     </div>
   );
 };
