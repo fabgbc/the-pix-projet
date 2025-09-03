@@ -2,18 +2,20 @@ import React from 'react';
 import {
   ArrowLeft,
   Camera,
-  MapPin,
-  Building,
   Heart,
+  Sparkles,
+  Check,
   Star,
   Share2,
-  Shield,
-  Settings
+  Settings,
+  Eye,
+  Award,
+  Monitor
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
 
-interface Paris3PageProps {
+interface Paris8PageProps {
   onBack: () => void;
   onQuoteRequest?: () => void;
   onPhotoboothDetails?: () => void;
@@ -21,14 +23,27 @@ interface Paris3PageProps {
   onSEOPage?: () => void;
   onParis1Page?: () => void;
   onParis2Page?: () => void;
+  onParis3Page?: () => void;
   onParis4Page?: () => void;
   onParis5Page?: () => void;
   onParis6Page?: () => void;
   onParis7Page?: () => void;
-  onParis8Page?: () => void;
 }
 
-const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onSEOPage, onParis1Page, onParis2Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page }) => {
+const Paris8Page: React.FC<Paris8PageProps> = ({
+  onBack,
+  onQuoteRequest,
+  onPhotoboothDetails,
+  onAIAnimations,
+  onSEOPage,
+  onParis1Page,
+  onParis2Page,
+  onParis3Page,
+  onParis4Page,
+  onParis5Page,
+  onParis6Page,
+  onParis7Page,
+}) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -43,27 +58,27 @@ const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhoto
             </div>
 
             <nav className="hidden lg:flex items-center space-x-8">
-              <button 
+              <button
                 onClick={onBack}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Accueil
               </button>
-              <button 
+              <button
                 onClick={onPhotoboothDetails}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Photobooth sur mesure
               </button>
               <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
-              <button 
+              <button
                 onClick={onAIAnimations}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
               </button>
               <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
-              <button 
+              <button
                 onClick={onQuoteRequest}
                 className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
               >
@@ -71,7 +86,7 @@ const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhoto
               </button>
             </nav>
 
-            <button 
+            <button
               onClick={onBack}
               className="lg:hidden flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
             >
@@ -87,15 +102,9 @@ const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhoto
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Photobooth
-              <span className="text-yellow-400 relative">
-                {' '}Paris 3
-                <div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div>
-              </span>
+              Louer un photobooth
+              <span className="text-yellow-400 relative">{' '}Paris 8<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
             </h1>
-            <h2 className="text-2xl lg:text-3xl font-semibold text-gray-600 mb-8">
-              Immortalisez vos événements
-            </h2>
           </div>
         </div>
       </section>
@@ -110,16 +119,16 @@ const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhoto
                 <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center">
                   <Heart className="w-6 h-6 text-black" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Photobooth Paris 3 : Immortalisez vos événements</h2>
+                <h2 className="text-3xl font-bold text-black">Location photobooth Paris 8</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Imaginez Paris, la ville lumière, où chaque pierre du Marais murmure des siècles d'histoire, où la Place de la République devient le carrefour des rencontres inattendues, et où la Rue de Bretagne dévoile des trésors d'art contemporain à ciel ouvert. Dans le 3ème arrondissement, l'âme bohème des cours cachées dialogue avec l'énergie créative des concept-stores.
-              </p>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                C'est ici, entre passé et présent, que vos événements méritent d'être transcendés. Plongez dans l'expérience avec nos photobooths, bien plus que des appareils : des complices de mémoire, ajustés sur mesure à votre univers.
+                Avec ses avenues prestigieuses et ses monuments mythiques comme les Champs-Élysées,
+                l'Arc de Triomphe ou la Place de la Concorde, le 8ème arrondissement est un écrin
+                d'exception pour vos événements. The Pix vous propose d'y installer un photobooth
+                pour sublimer vos réceptions privées ou professionnelles.
               </p>
               <div className="mt-8">
-                <button 
+                <button
                   onClick={onQuoteRequest}
                   className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-semibold text-lg"
                 >
@@ -129,102 +138,140 @@ const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhoto
             </div>
           </section>
 
-          {/* Le Photobooth Paris 3 Revisité */}
+          {/* Photobooth tendance */}
           <section className="mb-16">
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-white" />
+                  <Sparkles className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Le Photobooth Paris 3 Revisité</h2>
+                <h2 className="text-3xl font-bold text-black">Le photobooth : l'animation tendance dans la capitale</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Pour une location de photobooth à Paris, The Pix incarne l'adresse à retenir. Oubliez les bornes photo impersonnelles : nos cabines sont une invitation à capturer l'âme vibrante du Paris historique, des arcades du Marais aux échoppes gourmandes de la Rue de Bretagne. L'authenticité, sans les clichés.
+                Mariage sur l'avenue Montaigne, cocktail professionnel au pied de l'Arc de Triomphe
+                ou soirée étudiante près des Champs-Élysées : la borne à selfie apporte une touche
+                d'originalité et de convivialité à tout rassemblement.
               </p>
-              <div className="bg-white p-6 rounded-xl">
-                <h3 className="font-bold text-black mb-3 text-xl">location photobooth paris 3</h3>
+              <div className="mt-6 bg-white p-6 rounded-xl">
+                <h3 className="font-bold text-black mb-3 text-xl">location photobooth paris 8</h3>
                 <p className="text-gray-700">
-                  Notre technologie haut de gamme épouse naturellement le rythme du quartier. Elle saisit les éclats de joie près du Canal Saint-Martin, les discussions animées à deux pas de la Place de la République, ces secondes où le temps semble suspendre son vol. Un rendu d'une netteté remarquable, pour des souvenirs aussi vivants que votre événement.
+                  Vos invités se prennent en photo et repartent avec leurs souvenirs numériques grâce
+                  à notre cabine dernière génération. Une animation incontournable pour une ambiance
+                  joyeuse et festive.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* L'Art de l'Événement d'Affaires */}
+          {/* Technologies */}
           <section className="mb-16">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
-                  <Building className="w-6 h-6 text-white" />
+                  <Monitor className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">L'Art de l'Événement d'Affaires</h2>
+                <h2 className="text-3xl font-bold text-black">Une cabine photo dotée des dernières technologies</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Dans l'effervescence des rendez-vous professionnels – inauguration, soirée d'entreprise ou colloque – l'excellence se doit d'être sans compromis. Nos photobooths, au design épuré, s'effacent pour mettre en lumière vos invités. Une animation discrète mais impactante, où chaque cliché devient un ambassadeur de votre marque. Redéfinissez les codes des événements en Île-de-France.
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                Nos bornes selfie intègrent des équipements haut de gamme pour une expérience optimale :
               </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Appareils photo reflex professionnels</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Écrans tactiles HD</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Impression instantanée des photos</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Partage immédiat sur les réseaux</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Grand choix d'accessoires drôles</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Personnalisation des fonds et de l'habillage</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Votre Réservation, Simplissime */}
+          {/* Réservation */}
           <section className="mb-16">
             <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
                   <Settings className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Votre Réservation, Simplissime</h2>
+                <h2 className="text-3xl font-bold text-black">Réservez votre photobooth en quelques clics</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Organiser un événement à Paris relève parfois du défi. Avec The Pix, libérez-vous des contraintes logistiques. Aucun formulaire interminable ni processus alambiqué : quelques clics suffisent pour bloquer votre date.
-              </p>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Choix du lieu, options de personnalisation, livraison clé en main – notre équipe orchestre chaque détail avec la précision d'un horloger. Vous n'aurez qu'à profiter de l'instant.
+                Notre site web accessible 7j/7 permet de réserver facilement : indiquez la date, le
+                lieu et vos options, nous gérons le transport, l'installation et le démontage.
               </p>
             </div>
           </section>
 
-          {/* L'instant magique, prolongé sur les réseaux */}
+          {/* Partage */}
           <section className="mb-16">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-2xl">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
                   <Share2 className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">L'instant magique, prolongé sur les réseaux</h2>
+                <h2 className="text-3xl font-bold text-black">Partagez vos moments forts</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                À l'ère où chaque émotion appelle au partage, notre photobooth à Paris 3 devient votre allié digital. Les sourires fusent, les poses s'enchaînent, et les clichés s'envolent en direct vers les réseaux sociaux.
+                Les photos peuvent être diffusées instantanément sur les réseaux sociaux ou dans notre
+                galerie. Créez un hashtag dédié pour prolonger la fête au-delà de votre événement.
               </p>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Une viralité élégante qui prolonge la vie de votre événement tout en boostant votre visibilité. L'interaction devient mémoire, et la mémoire, promotion.
-              </p>
-              <div className="mt-6 bg-white p-6 rounded-xl">
-                <p className="text-gray-700">
-                  <button 
-                    onClick={onParis2Page}
-                    className="text-blue-600 hover:text-blue-800 transition-colors underline"
-                  >
-                    Découvrez aussi nos services sur Paris 2.
-                  </button>
-                </p>
-              </div>
             </div>
           </section>
 
-          {/* Notre Engagement : Votre Sérénité */}
+          {/* Image de marque */}
           <section className="mb-16">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-white" />
+                  <Eye className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Notre Engagement : Votre Sérénité</h2>
+                <h2 className="text-3xl font-bold text-black">Un accessoire tendance pour votre image</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Confier votre événement à notre équipe, c'est choisir la tranquillité d'esprit. Besoin d'un conseil pour l'emplacement idéal ? D'une charte graphique alignée sur votre identité ? Nos experts déploient des solutions sur mesure, avec la réactivité qui caractérise Paris.
+                Grâce à la personnalisation de l'habillage, des accessoires ou des tirages, le
+                photobooth reflète votre univers et renforce votre notoriété.
               </p>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Car ici, chaque projet est traité avec la passion d'un premier rendez-vous.
+            </div>
+          </section>
+
+          {/* Équipe */}
+          <section className="mb-16">
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-bold text-black">Une équipe d'experts à votre écoute</h2>
+              </div>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                Notre équipe vous accompagne de A à Z pour louer et installer facilement votre
+                photobooth au cœur de Paris.
               </p>
             </div>
           </section>
@@ -236,18 +283,15 @@ const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhoto
                 <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center">
                   <Star className="w-6 h-6 text-black" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Paris ne se livre pas, elle se vit</h2>
+                <h2 className="text-3xl font-bold text-black">Prêt à faire sourire vos invités ?</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                À travers nos photobooths, offrez à vos invités un fragment de cette magie – des instants volés, transformés en héritage tangible.
-              </p>
               <div className="bg-white p-6 rounded-xl">
-                <h3 className="font-bold text-black mb-4 text-xl">Prêt à transformer votre événement en une expérience inoubliable ?</h3>
+                <h3 className="font-bold text-black mb-4 text-xl">Réservez votre photobooth à Paris 8 dès maintenant</h3>
                 <p className="text-gray-700 mb-6">
-                  Réservez dès maintenant votre photobooth dans le 3ème arrondissement de Paris et créez des souvenirs exceptionnels pour vos invités.
+                  Faites de votre événement un moment inoubliable avec The Pix.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
+                  <button
                     onClick={onQuoteRequest}
                     className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
                   >
@@ -267,16 +311,16 @@ const Paris3Page: React.FC<Paris3PageProps> = ({ onBack, onQuoteRequest, onPhoto
         arrondissementLinks={[
           { label: 'Location photobooth Paris 1', onClick: onParis1Page },
           { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onBack },
+          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
           { label: 'Location photobooth Paris 4', onClick: onParis4Page },
           { label: 'Location photobooth Paris 5', onClick: onParis5Page },
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onParis8Page },
+          { label: 'Location photobooth Paris 8', onClick: onBack },
         ]}
       />
     </div>
   );
 };
 
-export default Paris3Page;
+export default Paris8Page;
