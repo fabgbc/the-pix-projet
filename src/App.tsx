@@ -13,6 +13,7 @@ import Paris4Page from './components/Paris4Page';
 import Paris5Page from './components/Paris5Page';
 import Paris6Page from './components/Paris6Page';
 import Paris7Page from './components/Paris7Page';
+import Paris8Page from './components/Paris8Page';
 import { 
   Camera,
   Sparkles,
@@ -49,6 +50,7 @@ function App() {
   const [showParis5Page, setShowParis5Page] = useState(false);
   const [showParis6Page, setShowParis6Page] = useState(false);
   const [showParis7Page, setShowParis7Page] = useState(false);
+  const [showParis8Page, setShowParis8Page] = useState(false);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // Fonction pour remettre le scroll en haut
@@ -59,7 +61,7 @@ function App() {
   // Effet pour remettre le scroll en haut quand on change de page
   useEffect(() => {
     scrollToTop();
-  }, [showQuotePage, showPhotoboothDetails, showAIAnimations, showDemoRequest, showSEOPage, showPhotographerAI, showParis1Page, showParis2Page, showParis3Page, showParis4Page, showParis5Page, showParis6Page, showParis7Page]);
+  }, [showQuotePage, showPhotoboothDetails, showAIAnimations, showDemoRequest, showSEOPage, showPhotographerAI, showParis1Page, showParis2Page, showParis3Page, showParis4Page, showParis5Page, showParis6Page, showParis7Page, showParis8Page]);
 
   // Fonction pour gérer le retour depuis la page de devis
   const handleQuotePageBack = () => {
@@ -92,6 +94,9 @@ function App() {
         break;
       case 'paris7':
         setShowParis7Page(true);
+        break;
+      case 'paris8':
+        setShowParis8Page(true);
         break;
       default:
         // Rester sur la page principale
@@ -140,6 +145,10 @@ function App() {
         setShowQuotePage(false);
         setShowParis7Page(true);
       }}
+      onParis8Page={() => {
+        setShowQuotePage(false);
+        setShowParis8Page(true);
+      }}
     />;
   }
 
@@ -181,6 +190,10 @@ function App() {
       onParis7Page={() => {
         setShowPhotoboothDetails(false);
         setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowPhotoboothDetails(false);
+        setShowParis8Page(true);
       }}
       onQuoteRequest={() => {
         setShowPhotoboothDetails(false);
@@ -232,6 +245,10 @@ function App() {
         setShowAIAnimations(false);
         setShowParis7Page(true);
       }}
+      onParis8Page={() => {
+        setShowAIAnimations(false);
+        setShowParis8Page(true);
+      }}
       onQuoteRequest={() => {
         setShowAIAnimations(false);
         openQuotePage('aiAnimations');
@@ -273,6 +290,10 @@ function App() {
       onParis7Page={() => {
         setShowDemoRequest(false);
         setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowDemoRequest(false);
+        setShowParis8Page(true);
       }}
       onQuoteRequest={() => {
         setShowDemoRequest(false);
@@ -324,6 +345,10 @@ function App() {
         setShowSEOPage(false);
         setShowParis7Page(true);
       }}
+      onParis8Page={() => {
+        setShowSEOPage(false);
+        setShowParis8Page(true);
+      }}
     />;
   }
 
@@ -374,6 +399,10 @@ function App() {
         setShowPhotographerAI(false);
         setShowParis7Page(true);
       }}
+      onParis8Page={() => {
+        setShowPhotographerAI(false);
+        setShowParis8Page(true);
+      }}
     />;
   }
 
@@ -419,6 +448,10 @@ function App() {
       onParis7Page={() => {
         setShowParis1Page(false);
         setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis1Page(false);
+        setShowParis8Page(true);
       }}
     />;
   }
@@ -466,6 +499,10 @@ function App() {
         setShowParis2Page(false);
         setShowParis7Page(true);
       }}
+      onParis8Page={() => {
+        setShowParis2Page(false);
+        setShowParis8Page(true);
+      }}
     />;
   }
 
@@ -511,6 +548,10 @@ function App() {
       onParis7Page={() => {
         setShowParis3Page(false);
         setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis3Page(false);
+        setShowParis8Page(true);
       }}
     />;
   }
@@ -558,6 +599,10 @@ function App() {
         setShowParis4Page(false);
         setShowParis7Page(true);
       }}
+      onParis8Page={() => {
+        setShowParis4Page(false);
+        setShowParis8Page(true);
+      }}
     />;
   }
 
@@ -603,6 +648,10 @@ function App() {
       onParis7Page={() => {
         setShowParis5Page(false);
         setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis5Page(false);
+        setShowParis8Page(true);
       }}
     />;
   }
@@ -650,12 +699,16 @@ function App() {
         setShowParis6Page(false);
         setShowParis7Page(true);
       }}
+      onParis8Page={() => {
+        setShowParis6Page(false);
+        setShowParis8Page(true);
+      }}
     />;
   }
 
   if (showParis7Page) {
-    return <Paris7Page 
-      onBack={() => setShowParis7Page(false)} 
+    return <Paris7Page
+      onBack={() => setShowParis7Page(false)}
       onQuoteRequest={() => {
         setShowParis7Page(false);
         openQuotePage('paris7');
@@ -695,6 +748,60 @@ function App() {
       onParis6Page={() => {
         setShowParis7Page(false);
         setShowParis6Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis7Page(false);
+        setShowParis8Page(true);
+      }}
+    />;
+  }
+
+  if (showParis8Page) {
+    return <Paris8Page
+      onBack={() => setShowParis8Page(false)}
+      onQuoteRequest={() => {
+        setShowParis8Page(false);
+        openQuotePage('paris8');
+      }}
+      onPhotoboothDetails={() => {
+        setShowParis8Page(false);
+        setShowPhotoboothDetails(true);
+      }}
+      onAIAnimations={() => {
+        setShowParis8Page(false);
+        setShowAIAnimations(true);
+      }}
+      onSEOPage={() => {
+        setShowParis8Page(false);
+        setShowSEOPage(true);
+      }}
+      onParis1Page={() => {
+        setShowParis8Page(false);
+        setShowParis1Page(true);
+      }}
+      onParis2Page={() => {
+        setShowParis8Page(false);
+        setShowParis2Page(true);
+      }}
+      onParis3Page={() => {
+        setShowParis8Page(false);
+        setShowParis3Page(true);
+      }}
+      onParis4Page={() => {
+        setShowParis8Page(false);
+        setShowParis4Page(true);
+      }}
+      onParis5Page={() => {
+        setShowParis8Page(false);
+        setShowParis5Page(true);
+      }}
+      onParis6Page={() => {
+        setShowParis8Page(false);
+        setShowParis6Page(true);
+      }}
+      onParis7Page={() => {
+        setShowParis8Page(false);
+        setShowParis7Page(true);
       }}
     />;
   }
@@ -1505,11 +1612,17 @@ function App() {
                 >
                   Location photobooth Paris 6
                 </button>
-                <button 
+                <button
                   onClick={() => setShowParis7Page(true)}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 7
+                </button>
+                <button
+                  onClick={() => setShowParis8Page(true)}
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                >
+                  Location photobooth Paris 8
                 </button>
               </div>
             </div>
