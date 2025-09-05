@@ -1538,8 +1538,8 @@ function App() {
       {/* Footer */}
       <footer className="bg-white py-16 border-t border-gray-100" role="contentinfo">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
+          <div className="grid lg:grid-cols-4 gap-8 mb-12">
+            <div className="lg:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
                   <Camera className="w-6 h-6 text-black" />
@@ -1570,69 +1570,63 @@ function App() {
                 <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Technologie connectée</a>
                 <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Décors immersifs</a>
                 <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Animation événementielle</a>
-                <button
+                <button 
                   onClick={() => setShowSEOPage(true)}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris
                 </button>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-black mb-6 text-lg">Arrondissements</h3>
-              <div className="space-y-3">
-                <button
+                <button 
                   onClick={() => setShowParis1Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 1
                 </button>
-                <button
+                <button 
                   onClick={() => setShowParis2Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 2
                 </button>
-                <button
+                <button 
                   onClick={() => setShowParis3Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 3
                 </button>
-                <button
+                <button 
                   onClick={() => setShowParis4Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 4
                 </button>
-                <button
+                <button 
                   onClick={() => setShowParis5Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 5
                 </button>
-                <button
+                <button 
                   onClick={() => setShowParis6Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 6
                 </button>
                 <button
                   onClick={() => setShowParis7Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 7
                 </button>
                 <button
                   onClick={() => setShowParis8Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 8
                 </button>
               </div>
             </div>
-
+            
             <div>
               <h3 className="font-bold text-black mb-6 text-lg">Contact</h3>
               <div className="space-y-4">

@@ -11,8 +11,8 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
   return (
     <footer className="bg-white py-16 border-t border-gray-100" role="contentinfo">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div>
+        <div className="grid lg:grid-cols-4 gap-8 mb-12">
+          <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
                 <Camera className="w-6 h-6 text-black" />
@@ -62,21 +62,17 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
                   Location photobooth Paris
                 </button>
               )}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-black mb-6 text-lg">Arrondissements</h3>
-            <div className="space-y-3">
-              {arrondissementLinks.map((link, idx) => (
-                <button
-                  key={idx}
-                  onClick={link.onClick}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left whitespace-nowrap"
-                >
-                  {link.label}
-                </button>
-              ))}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                {arrondissementLinks.map((link, idx) => (
+                  <button
+                    key={idx}
+                    onClick={link.onClick}
+                    className="text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
