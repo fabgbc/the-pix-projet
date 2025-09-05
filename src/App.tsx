@@ -14,7 +14,7 @@ import Paris6Page from './components/Paris6Page';
 import Paris7Page from './components/Paris7Page';
 import Paris8Page from './components/Paris8Page';
 import Paris9Page from './components/Paris9Page';
-import { 
+import {
   Camera,
   Sparkles,
   Users,
@@ -39,22 +39,14 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [previousPage, setPreviousPage] = useState<string>('home');
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
 
-  const showQuotePage = currentPage === 'quote';
-  const showPhotoboothDetails = currentPage === 'photoboothDetails';
-  const showAIAnimations = currentPage === 'aiAnimations';
-  const showDemoRequest = currentPage === 'demoRequest';
-  const showSEOPage = currentPage === 'seo';
-  const showPhotographerAI = currentPage === 'photographerAI';
-  const showParis1Page = currentPage === 'paris1';
-  const showParis2Page = currentPage === 'paris2';
-  const showParis3Page = currentPage === 'paris3';
-  const showParis4Page = currentPage === 'paris4';
-  const showParis5Page = currentPage === 'paris5';
-  const showParis6Page = currentPage === 'paris6';
-  const showParis7Page = currentPage === 'paris7';
-  const showParis8Page = currentPage === 'paris8';
-  const showParis9Page = currentPage === 'paris9';
+  useEffect(() => {
+    if (currentPage === 'home' && scrollTarget) {
+      document.getElementById(scrollTarget)?.scrollIntoView({ behavior: 'smooth' });
+      setScrollTarget(null);
+    }
+  }, [currentPage, scrollTarget]);
 
   // Fonction pour remettre le scroll en haut
   const scrollToTop = () => {
@@ -78,9 +70,13 @@ function App() {
   };
 
   const goTo = (page: string) => () => setCurrentPage(page);
+  const navigateHomeAndScroll = (id: string) => {
+    setScrollTarget(id);
+    setCurrentPage('home');
+  };
 
-  if (showQuotePage) {
-    return (
+  const pages: Record<string, JSX.Element> = {
+    quote: (
       <QuotePage
         onBack={handleQuotePageBack}
         onSEOPage={goTo('seo')}
@@ -93,12 +89,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showPhotoboothDetails) {
-    return (
+    ),
+    photoboothDetails: (
       <PhotoboothDetailsPage
         onBack={goTo('home')}
         onAIAnimations={goTo('aiAnimations')}
@@ -113,12 +107,10 @@ function App() {
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
         onQuoteRequest={() => openQuotePage('photoboothDetails')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showAIAnimations) {
-    return (
+    ),
+    aiAnimations: (
       <AIAnimationsPage
         onBack={goTo('home')}
         onDemoRequest={goTo('demoRequest')}
@@ -134,12 +126,10 @@ function App() {
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
         onQuoteRequest={() => openQuotePage('aiAnimations')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showDemoRequest) {
-    return (
+    ),
+    demoRequest: (
       <DemoRequestPage
         onBack={goTo('home')}
         onSEOPage={goTo('seo')}
@@ -153,12 +143,10 @@ function App() {
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
         onQuoteRequest={() => openQuotePage('demoRequest')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showSEOPage) {
-    return (
+    ),
+    seo: (
       <SEOPage
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('seo')}
@@ -173,12 +161,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showPhotographerAI) {
-    return (
+    ),
+    photographerAI: (
       <PhotographerAIPage
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('photographerAI')}
@@ -194,12 +180,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis1Page) {
-    return (
+    ),
+    paris1: (
       <Paris1Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris1')}
@@ -214,12 +198,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis2Page) {
-    return (
+    ),
+    paris2: (
       <Paris2Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris2')}
@@ -234,12 +216,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis3Page) {
-    return (
+    ),
+    paris3: (
       <Paris3Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris3')}
@@ -254,12 +234,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis4Page) {
-    return (
+    ),
+    paris4: (
       <Paris4Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris4')}
@@ -274,12 +252,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis5Page) {
-    return (
+    ),
+    paris5: (
       <Paris5Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris5')}
@@ -294,12 +270,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis6Page) {
-    return (
+    ),
+    paris6: (
       <Paris6Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris6')}
@@ -314,12 +288,10 @@ function App() {
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis7Page) {
-    return (
+    ),
+    paris7: (
       <Paris7Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris7')}
@@ -334,12 +306,10 @@ function App() {
         onParis6Page={goTo('paris6')}
         onParis8Page={goTo('paris8')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis8Page) {
-    return (
+    ),
+    paris8: (
       <Paris8Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris8')}
@@ -354,12 +324,10 @@ function App() {
         onParis6Page={goTo('paris6')}
         onParis7Page={goTo('paris7')}
         onParis9Page={goTo('paris9')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
-
-  if (showParis9Page) {
-    return (
+    ),
+    paris9: (
       <Paris9Page
         onBack={goTo('home')}
         onQuoteRequest={() => openQuotePage('paris9')}
@@ -374,11 +342,15 @@ function App() {
         onParis6Page={goTo('paris6')}
         onParis7Page={goTo('paris7')}
         onParis8Page={goTo('paris8')}
+        onNavigateHome={navigateHomeAndScroll}
       />
-    );
-  }
+    ),
+  };
 
-  return (
+  if (currentPage !== 'home') {
+    return pages[currentPage] || null;
+  }
+return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100" role="banner">

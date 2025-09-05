@@ -22,9 +22,11 @@ import {
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
+import { getArrondissementLinks } from '../utils/arrondissementLinks';
 
 interface AIAnimationsPageProps {
   onBack: () => void;
+  onNavigateHome: (id: string) => void;
   onDemoRequest: () => void;
   onPhotoboothDetails?: () => void;
   onSEOPage?: () => void;
@@ -40,7 +42,7 @@ interface AIAnimationsPageProps {
   onQuoteRequest?: () => void;
 }
 
-const AIAnimationsPage: React.FC<AIAnimationsPageProps> = ({ onBack, onDemoRequest, onPhotoboothDetails, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page, onQuoteRequest }) => {
+const AIAnimationsPage: React.FC<AIAnimationsPageProps> = ({ onBack, onNavigateHome, onDemoRequest, onPhotoboothDetails, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page, onQuoteRequest }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -67,11 +69,11 @@ const AIAnimationsPage: React.FC<AIAnimationsPageProps> = ({ onBack, onDemoReque
               >
                 Photobooth sur mesure
               </button>
-              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
+              <HomeSectionLink label="Événements Privés" targetId="mariages" onNavigate={onNavigateHome} />
               <span className="text-yellow-500 font-medium cursor-default">
                 Animations IA
               </span>
-              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
+              <HomeSectionLink label="Galerie" targetId="galerie" onNavigate={onNavigateHome} />
               <button 
                 onClick={onQuoteRequest}
                 className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
@@ -557,17 +559,17 @@ const AIAnimationsPage: React.FC<AIAnimationsPageProps> = ({ onBack, onDemoReque
       <Footer
         onSEOPage={onSEOPage}
         onPhotoboothDetails={onPhotoboothDetails}
-        arrondissementLinks={[
-          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
-          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
-          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
-          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
-          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
-        ]}
+        arrondissementLinks={getArrondissementLinks('home', {
+          onParis1Page,
+          onParis2Page,
+          onParis3Page,
+          onParis4Page,
+          onParis5Page,
+          onParis6Page,
+          onParis7Page,
+          onParis8Page,
+          onParis9Page
+        })}
       />
     </div>
   );

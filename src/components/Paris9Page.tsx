@@ -14,9 +14,11 @@ import {
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
+import { getArrondissementLinks } from '../utils/arrondissementLinks';
 
 interface Paris9PageProps {
   onBack: () => void;
+  onNavigateHome: (id: string) => void;
   onQuoteRequest?: () => void;
   onPhotoboothDetails?: () => void;
   onAIAnimations?: () => void;
@@ -33,6 +35,7 @@ interface Paris9PageProps {
 
 const Paris9Page: React.FC<Paris9PageProps> = ({
   onBack,
+  onNavigateHome,
   onQuoteRequest,
   onPhotoboothDetails,
   onAIAnimations,
@@ -72,14 +75,14 @@ const Paris9Page: React.FC<Paris9PageProps> = ({
               >
                 Photobooth sur mesure
               </button>
-              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
+              <HomeSectionLink label="Événements Privés" targetId="mariages" onNavigate={onNavigateHome} />
               <button
                 onClick={onAIAnimations}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
               </button>
-              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
+              <HomeSectionLink label="Galerie" targetId="galerie" onNavigate={onNavigateHome} />
               <button
                 onClick={onQuoteRequest}
                 className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
@@ -105,7 +108,7 @@ const Paris9Page: React.FC<Paris9PageProps> = ({
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
               Louer un photobooth
-              <span className="text-yellow-400 relative">{' '}Paris 9<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
+              <span className="text-yellow-400 relative inline-block"> {' '}Paris 9 <span className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></span></span>
             </h1>
           </div>
         </div>
@@ -310,17 +313,16 @@ const Paris9Page: React.FC<Paris9PageProps> = ({
       <Footer
         onSEOPage={onSEOPage}
         onPhotoboothDetails={onPhotoboothDetails}
-        arrondissementLinks={[
-          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
-          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
-          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
-          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
-          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: () => {} },
-        ]}
+        arrondissementLinks={getArrondissementLinks('paris9', {
+          onParis1Page,
+          onParis2Page,
+          onParis3Page,
+          onParis4Page,
+          onParis5Page,
+          onParis6Page,
+          onParis7Page,
+          onParis8Page
+        })}
       />
     </div>
   );

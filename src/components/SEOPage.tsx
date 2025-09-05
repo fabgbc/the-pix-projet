@@ -16,9 +16,11 @@ import {
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
+import { getArrondissementLinks } from '../utils/arrondissementLinks';
 
 interface SEOPageProps {
   onBack: () => void;
+  onNavigateHome: (id: string) => void;
   onQuoteRequest?: () => void;
   onPhotoboothDetails?: () => void;
   onAIAnimations?: () => void;
@@ -33,7 +35,7 @@ interface SEOPageProps {
   onParis9Page?: () => void;
 }
 
-const SEOPage: React.FC<SEOPageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page }) => {
+const SEOPage: React.FC<SEOPageProps> = ({ onBack, onNavigateHome, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -60,14 +62,14 @@ const SEOPage: React.FC<SEOPageProps> = ({ onBack, onQuoteRequest, onPhotoboothD
               >
                 Photobooth sur mesure
               </button>
-              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
+              <HomeSectionLink label="Événements Privés" targetId="mariages" onNavigate={onNavigateHome} />
               <button 
                 onClick={onAIAnimations}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
               </button>
-              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
+              <HomeSectionLink label="Galerie" targetId="galerie" onNavigate={onNavigateHome} />
               <button 
                 onClick={onQuoteRequest}
                 className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
@@ -482,17 +484,17 @@ const SEOPage: React.FC<SEOPageProps> = ({ onBack, onQuoteRequest, onPhotoboothD
       <Footer
         onSEOPage={onBack}
         onPhotoboothDetails={onPhotoboothDetails}
-        arrondissementLinks={[
-          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
-          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
-          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
-          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
-          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
-        ]}
+        arrondissementLinks={getArrondissementLinks('home', {
+          onParis1Page,
+          onParis2Page,
+          onParis3Page,
+          onParis4Page,
+          onParis5Page,
+          onParis6Page,
+          onParis7Page,
+          onParis8Page,
+          onParis9Page
+        })}
       />
     </div>
   );

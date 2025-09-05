@@ -13,9 +13,11 @@ import {
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
+import { getArrondissementLinks } from '../utils/arrondissementLinks';
 
 interface QuotePageProps {
   onBack: () => void;
+  onNavigateHome: (id: string) => void;
   onSEOPage?: () => void;
   onParis1Page?: () => void;
   onParis2Page?: () => void;
@@ -28,7 +30,7 @@ interface QuotePageProps {
   onParis9Page?: () => void;
 }
 
-const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page }) => {
+const QuotePage: React.FC<QuotePageProps> = ({ onBack, onNavigateHome, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     clientType: '', // 'enterprise' or 'wedding'
@@ -169,14 +171,14 @@ const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, 
               >
                 Photobooth sur mesure
               </button>
-              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
+              <HomeSectionLink label="Événements Privés" targetId="mariages" onNavigate={onNavigateHome} />
               <button 
                 onClick={onBack}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
               </button>
-              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
+              <HomeSectionLink label="Galerie" targetId="galerie" onNavigate={onNavigateHome} />
               <button className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold">
                 Devis Gratuit
               </button>
@@ -544,17 +546,17 @@ const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, 
       {/* Footer */}
       <Footer
         onSEOPage={onSEOPage}
-        arrondissementLinks={[
-          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
-          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
-          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
-          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
-          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
-        ]}
+        arrondissementLinks={getArrondissementLinks('home', {
+          onParis1Page,
+          onParis2Page,
+          onParis3Page,
+          onParis4Page,
+          onParis5Page,
+          onParis6Page,
+          onParis7Page,
+          onParis8Page,
+          onParis9Page
+        })}
       />
     </div>
   );

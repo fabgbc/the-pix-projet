@@ -3,21 +3,14 @@ import React from 'react';
 interface HomeSectionLinkProps {
   label: string;
   targetId: string;
-  onBack: () => void;
+  onNavigate: (id: string) => void;
   className?: string;
 }
 
-const HomeSectionLink: React.FC<HomeSectionLinkProps> = ({ label, targetId, onBack, className }) => {
-  const handleClick = () => {
-    onBack();
-    setTimeout(() => {
-      document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  };
-
+const HomeSectionLink: React.FC<HomeSectionLinkProps> = ({ label, targetId, onNavigate, className }) => {
   return (
     <button
-      onClick={handleClick}
+      onClick={() => onNavigate(targetId)}
       className={className || 'text-gray-700 hover:text-yellow-500 transition-colors font-medium'}
     >
       {label}
@@ -26,4 +19,3 @@ const HomeSectionLink: React.FC<HomeSectionLinkProps> = ({ label, targetId, onBa
 };
 
 export default HomeSectionLink;
-
