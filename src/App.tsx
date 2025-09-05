@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuotePage from './components/QuotePage';
 import PhotoboothDetailsPage from './components/PhotoboothDetailsPage';
 import AIAnimationsPage from './components/AIAnimationsPage';
@@ -38,22 +37,24 @@ import {
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showQuotePage, setShowQuotePage] = useState(false);
-  const [showPhotoboothDetails, setShowPhotoboothDetails] = useState(false);
-  const [showAIAnimations, setShowAIAnimations] = useState(false);
-  const [showDemoRequest, setShowDemoRequest] = useState(false);
-  const [showSEOPage, setShowSEOPage] = useState(false);
-  const [showPhotographerAI, setShowPhotographerAI] = useState(false);
-  const [showParis1Page, setShowParis1Page] = useState(false);
-  const [showParis2Page, setShowParis2Page] = useState(false);
-  const [showParis3Page, setShowParis3Page] = useState(false);
-  const [showParis4Page, setShowParis4Page] = useState(false);
-  const [showParis5Page, setShowParis5Page] = useState(false);
-  const [showParis6Page, setShowParis6Page] = useState(false);
-  const [showParis7Page, setShowParis7Page] = useState(false);
-  const [showParis8Page, setShowParis8Page] = useState(false);
-  const [showParis9Page, setShowParis9Page] = useState(false);
+  const [currentPage, setCurrentPage] = useState<string>('home');
   const [previousPage, setPreviousPage] = useState<string>('home');
+
+  const showQuotePage = currentPage === 'quote';
+  const showPhotoboothDetails = currentPage === 'photoboothDetails';
+  const showAIAnimations = currentPage === 'aiAnimations';
+  const showDemoRequest = currentPage === 'demoRequest';
+  const showSEOPage = currentPage === 'seo';
+  const showPhotographerAI = currentPage === 'photographerAI';
+  const showParis1Page = currentPage === 'paris1';
+  const showParis2Page = currentPage === 'paris2';
+  const showParis3Page = currentPage === 'paris3';
+  const showParis4Page = currentPage === 'paris4';
+  const showParis5Page = currentPage === 'paris5';
+  const showParis6Page = currentPage === 'paris6';
+  const showParis7Page = currentPage === 'paris7';
+  const showParis8Page = currentPage === 'paris8';
+  const showParis9Page = currentPage === 'paris9';
 
   // Fonction pour remettre le scroll en haut
   const scrollToTop = () => {
@@ -63,862 +64,318 @@ function App() {
   // Effet pour remettre le scroll en haut quand on change de page
   useEffect(() => {
     scrollToTop();
-  }, [showQuotePage, showPhotoboothDetails, showAIAnimations, showDemoRequest, showSEOPage, showPhotographerAI, showParis1Page, showParis2Page, showParis3Page, showParis4Page, showParis5Page, showParis6Page, showParis7Page, showParis8Page, showParis9Page]);
+  }, [currentPage]);
 
   // Fonction pour gérer le retour depuis la page de devis
   const handleQuotePageBack = () => {
-    setShowQuotePage(false);
-    // Retourner à la page précédente
-    switch (previousPage) {
-      case 'seo':
-        setShowSEOPage(true);
-        break;
-      case 'photographerAI':
-        setShowPhotographerAI(true);
-        break;
-      case 'paris1':
-        setShowParis1Page(true);
-        break;
-      case 'paris2':
-        setShowParis2Page(true);
-        break;
-      case 'paris3':
-        setShowParis3Page(true);
-        break;
-      case 'paris4':
-        setShowParis4Page(true);
-        break;
-      case 'paris5':
-        setShowParis5Page(true);
-        break;
-      case 'paris6':
-        setShowParis6Page(true);
-        break;
-      case 'paris7':
-        setShowParis7Page(true);
-        break;
-      case 'paris8':
-        setShowParis8Page(true);
-        break;
-      case 'paris9':
-        setShowParis9Page(true);
-        break;
-      default:
-        // Rester sur la page principale
-        break;
-    }
+    setCurrentPage(previousPage);
   };
 
   // Fonction pour ouvrir la page de devis en se souvenant de la page précédente
   const openQuotePage = (fromPage: string = 'home') => {
     setPreviousPage(fromPage);
-    setShowQuotePage(true);
+    setCurrentPage('quote');
   };
 
+  const goTo = (page: string) => () => setCurrentPage(page);
+
   if (showQuotePage) {
-    return <QuotePage 
-      onBack={handleQuotePageBack} 
-      onSEOPage={() => {
-        setShowQuotePage(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowQuotePage(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowQuotePage(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowQuotePage(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowQuotePage(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowQuotePage(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowQuotePage(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowQuotePage(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowQuotePage(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowQuotePage(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <QuotePage
+        onBack={handleQuotePageBack}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showPhotoboothDetails) {
-    return <PhotoboothDetailsPage
-      onBack={() => setShowPhotoboothDetails(false)}
-      onAIAnimations={() => {
-        setShowPhotoboothDetails(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowPhotoboothDetails(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis9Page(true);
-      }}
-      onQuoteRequest={() => {
-        setShowPhotoboothDetails(false);
-        openQuotePage('photoboothDetails');
-      }}
-    />;
+    return (
+      <PhotoboothDetailsPage
+        onBack={goTo('home')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+        onQuoteRequest={() => openQuotePage('photoboothDetails')}
+      />
+    );
   }
 
   if (showAIAnimations) {
-    return <AIAnimationsPage
-      onBack={() => setShowAIAnimations(false)}
-      onDemoRequest={() => {
-        setShowAIAnimations(false);
-        setShowDemoRequest(true);
-      }}
-      onPhotoboothDetails={() => {
-        setShowAIAnimations(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onSEOPage={() => {
-        setShowAIAnimations(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowAIAnimations(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowAIAnimations(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowAIAnimations(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowAIAnimations(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowAIAnimations(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowAIAnimations(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowAIAnimations(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowAIAnimations(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowAIAnimations(false);
-        setShowParis9Page(true);
-      }}
-      onQuoteRequest={() => {
-        setShowAIAnimations(false);
-        openQuotePage('aiAnimations');
-      }}
-    />;
+    return (
+      <AIAnimationsPage
+        onBack={goTo('home')}
+        onDemoRequest={goTo('demoRequest')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+        onQuoteRequest={() => openQuotePage('aiAnimations')}
+      />
+    );
   }
 
   if (showDemoRequest) {
-    return <DemoRequestPage 
-      onBack={() => setShowDemoRequest(false)}
-      onSEOPage={() => {
-        setShowDemoRequest(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowDemoRequest(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowDemoRequest(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowDemoRequest(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowDemoRequest(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowDemoRequest(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowDemoRequest(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowDemoRequest(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowDemoRequest(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowDemoRequest(false);
-        setShowParis9Page(true);
-      }}
-      onQuoteRequest={() => {
-        setShowDemoRequest(false);
-        openQuotePage('demoRequest');
-      }}
-    />;
+    return (
+      <DemoRequestPage
+        onBack={goTo('home')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+        onQuoteRequest={() => openQuotePage('demoRequest')}
+      />
+    );
   }
 
   if (showSEOPage) {
-    return <SEOPage 
-      onBack={() => setShowSEOPage(false)} 
-      onQuoteRequest={() => {
-        setShowSEOPage(false);
-        openQuotePage('seo');
-      }}
-      onPhotoboothDetails={() => {
-        setShowSEOPage(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowSEOPage(false);
-        setShowAIAnimations(true);
-      }}
-      onParis1Page={() => {
-        setShowSEOPage(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowSEOPage(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowSEOPage(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowSEOPage(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowSEOPage(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowSEOPage(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowSEOPage(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowSEOPage(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowSEOPage(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <SEOPage
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('seo')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showPhotographerAI) {
-    return <PhotographerAIPage 
-      onBack={() => setShowPhotographerAI(false)} 
-      onQuoteRequest={() => {
-        setShowPhotographerAI(false);
-        openQuotePage('photographerAI');
-      }} 
-      onPhotoboothDetails={() => {
-        setShowPhotographerAI(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowPhotographerAI(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowPhotographerAI(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <PhotographerAIPage
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('photographerAI')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis1Page) {
-    return <Paris1Page 
-      onBack={() => setShowParis1Page(false)} 
-      onQuoteRequest={() => {
-        setShowParis1Page(false);
-        openQuotePage('paris1');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis1Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis1Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis1Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis2Page={() => {
-        setShowParis1Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis1Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis1Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis1Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis1Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis1Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis1Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis1Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris1Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris1')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis2Page) {
-    return <Paris2Page 
-      onBack={() => setShowParis2Page(false)} 
-      onQuoteRequest={() => {
-        setShowParis2Page(false);
-        openQuotePage('paris2');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis2Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis2Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis2Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis2Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis2Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis2Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis2Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis2Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis2Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis2Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis2Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris2Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris2')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis3Page) {
-    return <Paris3Page 
-      onBack={() => setShowParis3Page(false)} 
-      onQuoteRequest={() => {
-        setShowParis3Page(false);
-        openQuotePage('paris3');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis3Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis3Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis3Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis3Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis3Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis3Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis3Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis3Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis3Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis3Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis3Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris3Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris3')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis4Page) {
-    return <Paris4Page 
-      onBack={() => setShowParis4Page(false)} 
-      onQuoteRequest={() => {
-        setShowParis4Page(false);
-        openQuotePage('paris4');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis4Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis4Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis4Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis4Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis4Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis4Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis4Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis4Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis4Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis4Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis4Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris4Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris4')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis5Page) {
-    return <Paris5Page 
-      onBack={() => setShowParis5Page(false)} 
-      onQuoteRequest={() => {
-        setShowParis5Page(false);
-        openQuotePage('paris5');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis5Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis5Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis5Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis5Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis5Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis5Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis5Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis5Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis5Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis5Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis5Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris5Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris5')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis6Page) {
-    return <Paris6Page 
-      onBack={() => setShowParis6Page(false)} 
-      onQuoteRequest={() => {
-        setShowParis6Page(false);
-        openQuotePage('paris6');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis6Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis6Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis6Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis6Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis6Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis6Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis6Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis6Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis6Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis6Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis6Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris6Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris6')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis7Page) {
-    return <Paris7Page
-      onBack={() => setShowParis7Page(false)}
-      onQuoteRequest={() => {
-        setShowParis7Page(false);
-        openQuotePage('paris7');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis7Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis7Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis7Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis7Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis7Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis7Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis7Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis7Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis7Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis7Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis7Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris7Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris7')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis8Page={goTo('paris8')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis8Page) {
-    return <Paris8Page
-      onBack={() => setShowParis8Page(false)}
-      onQuoteRequest={() => {
-        setShowParis8Page(false);
-        openQuotePage('paris8');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis8Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis8Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis8Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis8Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis8Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis8Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis8Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis8Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis8Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis8Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis8Page(false);
-        setShowParis9Page(true);
-      }}
-    />;
+    return (
+      <Paris8Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris8')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis9Page={goTo('paris9')}
+      />
+    );
   }
 
   if (showParis9Page) {
-    return <Paris9Page
-      onBack={() => setShowParis9Page(false)}
-      onQuoteRequest={() => {
-        setShowParis9Page(false);
-        openQuotePage('paris9');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis9Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis9Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis9Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis9Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis9Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis9Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis9Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis9Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis9Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis9Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis9Page(false);
-        setShowParis8Page(true);
-      }}
-    />;
+    return (
+      <Paris9Page
+        onBack={goTo('home')}
+        onQuoteRequest={() => openQuotePage('paris9')}
+        onPhotoboothDetails={goTo('photoboothDetails')}
+        onAIAnimations={goTo('aiAnimations')}
+        onSEOPage={goTo('seo')}
+        onParis1Page={goTo('paris1')}
+        onParis2Page={goTo('paris2')}
+        onParis3Page={goTo('paris3')}
+        onParis4Page={goTo('paris4')}
+        onParis5Page={goTo('paris5')}
+        onParis6Page={goTo('paris6')}
+        onParis7Page={goTo('paris7')}
+        onParis8Page={goTo('paris8')}
+      />
+    );
   }
 
   return (
@@ -936,15 +393,15 @@ function App() {
 
             <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Navigation principale">
               <a href="#services" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Accueil</a>
-              <button 
-                onClick={() => setShowPhotoboothDetails(true)}
+              <button
+                onClick={goTo('photoboothDetails')}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Photobooth sur mesure
               </button>
               <a href="#mariages" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Événements Privés</a>
-              <button 
-                onClick={() => setShowAIAnimations(true)}
+              <button
+                onClick={goTo('aiAnimations')}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
@@ -972,14 +429,14 @@ function App() {
               <div className="flex flex-col space-y-4 pt-4">
                 <a href="#services" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Accueil</a>
                 <button
-                  onClick={() => setShowPhotoboothDetails(true)}
+                  onClick={goTo('photoboothDetails')}
                   className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
                 >
                   Photobooth sur mesure
                 </button>
                 <a href="#mariages" className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">Événements Privés</a>
-                <button 
-                  onClick={() => setShowAIAnimations(true)}
+                <button
+                  onClick={goTo('aiAnimations')}
                   className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
                 >
                   Animations IA
@@ -1146,8 +603,8 @@ function App() {
                 <span className="text-white font-semibold">impressions de haute qualité</span> : 
                 tout est pensé pour marquer les esprits et créer des souvenirs uniques.
               </p>
-              <button 
-                onClick={() => setShowPhotoboothDetails(true)}
+              <button
+                onClick={goTo('photoboothDetails')}
                 className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-bold text-lg"
               >
                 EN SAVOIR PLUS
@@ -1200,8 +657,8 @@ function App() {
                   <span className="text-gray-700">Fonctionnalités IA disponibles pour des rendus créatifs ou interactifs</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => setShowPhotoboothDetails(true)}
+              <button
+                onClick={goTo('photoboothDetails')}
                 className="text-yellow-500 font-semibold hover:text-yellow-600 transition-colors flex items-center space-x-2"
               >
                 <span>👉 En savoir plus</span>
@@ -1235,8 +692,8 @@ function App() {
                   <span className="text-gray-700">Option selfie direct invité</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => setShowPhotographerAI(true)}
+              <button
+                onClick={goTo('photographerAI')}
                 className="text-yellow-500 font-semibold hover:text-yellow-600 transition-colors flex items-center space-x-2"
               >
                 <span>👉 En savoir plus</span>
@@ -1266,8 +723,8 @@ function App() {
                   <span className="text-gray-700">Partage instantané sur tous les supports</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => setShowAIAnimations(true)}
+              <button
+                onClick={goTo('aiAnimations')}
                 className="text-yellow-500 font-semibold hover:text-yellow-600 transition-colors flex items-center space-x-2"
               >
                 <span>En savoir plus</span>
@@ -1685,62 +1142,62 @@ function App() {
                 <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Technologie connectée</a>
                 <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Décors immersifs</a>
                 <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Animation événementielle</a>
-                <button 
-                  onClick={() => setShowSEOPage(true)}
+                <button
+                  onClick={goTo('seo')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris
                 </button>
-                <button 
-                  onClick={() => setShowParis1Page(true)}
+                <button
+                  onClick={goTo('paris1')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 1
                 </button>
-                <button 
-                  onClick={() => setShowParis2Page(true)}
+                <button
+                  onClick={goTo('paris2')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 2
                 </button>
-                <button 
-                  onClick={() => setShowParis3Page(true)}
+                <button
+                  onClick={goTo('paris3')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 3
                 </button>
-                <button 
-                  onClick={() => setShowParis4Page(true)}
+                <button
+                  onClick={goTo('paris4')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 4
                 </button>
-                <button 
-                  onClick={() => setShowParis5Page(true)}
+                <button
+                  onClick={goTo('paris5')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 5
                 </button>
-                <button 
-                  onClick={() => setShowParis6Page(true)}
+                <button
+                  onClick={goTo('paris6')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 6
                 </button>
                 <button
-                  onClick={() => setShowParis7Page(true)}
+                  onClick={goTo('paris7')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 7
                 </button>
                 <button
-                  onClick={() => setShowParis8Page(true)}
+                  onClick={goTo('paris8')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 8
                 </button>
                 <button
-                  onClick={() => setShowParis9Page(true)}
+                  onClick={goTo('paris9')}
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 9

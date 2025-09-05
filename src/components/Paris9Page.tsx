@@ -319,7 +319,7 @@ const Paris9Page: React.FC<Paris9PageProps> = ({
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
           { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: onBack },
+          { label: 'Location photobooth Paris 9', onClick: () => {} },
         ]}
       />
     </div>

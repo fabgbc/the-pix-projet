@@ -105,7 +105,10 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
               Louer un photobooth
-              <span className="text-yellow-400 relative">{' '}Paris 8<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
+              <span className="text-yellow-400 relative inline-block">
+                {' '}Paris 8
+                <span className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></span>
+              </span>
             </h1>
           </div>
         </div>
@@ -350,7 +353,7 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
           { label: 'Location photobooth Paris 5', onClick: onParis5Page },
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onBack },
+          { label: 'Location photobooth Paris 8', onClick: () => {} },
           { label: 'Location photobooth Paris 9', onClick: onParis9Page },
         ]}
       />
