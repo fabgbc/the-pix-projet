@@ -28,10 +28,11 @@ interface DemoRequestPageProps {
   onParis6Page?: () => void;
   onParis7Page?: () => void;
   onParis8Page?: () => void;
+  onParis9Page?: () => void;
   onQuoteRequest?: () => void;
 }
 
-const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onQuoteRequest }) => {
+const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page, onQuoteRequest }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     demoType: '', // 'live' or 'video'
@@ -475,6 +476,7 @@ const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, on
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
           { label: 'Location photobooth Paris 8', onClick: onParis8Page },
+          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
         ]}
       />
     </div>

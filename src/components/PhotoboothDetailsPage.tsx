@@ -27,10 +27,11 @@ interface PhotoboothDetailsPageProps {
   onParis6Page?: () => void;
   onParis7Page?: () => void;
   onParis8Page?: () => void;
+  onParis9Page?: () => void;
   onQuoteRequest?: () => void;
 }
 
-const PhotoboothDetailsPage: React.FC<PhotoboothDetailsPageProps> = ({ onBack, onAIAnimations, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onQuoteRequest }) => {
+const PhotoboothDetailsPage: React.FC<PhotoboothDetailsPageProps> = ({ onBack, onAIAnimations, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page, onQuoteRequest }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -543,6 +544,7 @@ const PhotoboothDetailsPage: React.FC<PhotoboothDetailsPageProps> = ({ onBack, o
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
           { label: 'Location photobooth Paris 8', onClick: onParis8Page },
+          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
         ]}
       />
     </div>

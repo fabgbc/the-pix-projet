@@ -28,6 +28,7 @@ interface Paris8PageProps {
   onParis5Page?: () => void;
   onParis6Page?: () => void;
   onParis7Page?: () => void;
+  onParis9Page?: () => void;
 }
 
 const Paris8Page: React.FC<Paris8PageProps> = ({
@@ -43,6 +44,7 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
   onParis5Page,
   onParis6Page,
   onParis7Page,
+  onParis9Page,
 }) => {
   return (
     <div className="min-h-screen bg-white">
@@ -349,6 +351,7 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
           { label: 'Location photobooth Paris 8', onClick: onBack },
+          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
         ]}
       />
     </div>

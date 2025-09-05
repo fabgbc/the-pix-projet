@@ -2,19 +2,20 @@ import React from 'react';
 import {
   ArrowLeft,
   Camera,
-  Users,
   Heart,
   Sparkles,
+  Check,
   Star,
-  Award,
   Share2,
+  Settings,
   Eye,
-  Settings
+  Award,
+  Monitor,
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
 
-interface Paris5PageProps {
+interface Paris9PageProps {
   onBack: () => void;
   onQuoteRequest?: () => void;
   onPhotoboothDetails?: () => void;
@@ -24,13 +25,27 @@ interface Paris5PageProps {
   onParis2Page?: () => void;
   onParis3Page?: () => void;
   onParis4Page?: () => void;
+  onParis5Page?: () => void;
   onParis6Page?: () => void;
   onParis7Page?: () => void;
   onParis8Page?: () => void;
-  onParis9Page?: () => void;
 }
 
-const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page }) => {
+const Paris9Page: React.FC<Paris9PageProps> = ({
+  onBack,
+  onQuoteRequest,
+  onPhotoboothDetails,
+  onAIAnimations,
+  onSEOPage,
+  onParis1Page,
+  onParis2Page,
+  onParis3Page,
+  onParis4Page,
+  onParis5Page,
+  onParis6Page,
+  onParis7Page,
+  onParis8Page,
+}) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -45,27 +60,27 @@ const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhoto
             </div>
 
             <nav className="hidden lg:flex items-center space-x-8">
-              <button 
+              <button
                 onClick={onBack}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Accueil
               </button>
-              <button 
+              <button
                 onClick={onPhotoboothDetails}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Photobooth sur mesure
               </button>
               <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
-              <button 
+              <button
                 onClick={onAIAnimations}
                 className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
               >
                 Animations IA
               </button>
               <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
-              <button 
+              <button
                 onClick={onQuoteRequest}
                 className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
               >
@@ -73,7 +88,7 @@ const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhoto
               </button>
             </nav>
 
-            <button 
+            <button
               onClick={onBack}
               className="lg:hidden flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
             >
@@ -89,15 +104,9 @@ const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhoto
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Photobooth
-              <span className="text-yellow-400 relative">
-                {' '}Paris 5
-                <div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div>
-              </span>
+              Louer un photobooth
+              <span className="text-yellow-400 relative">{' '}Paris 9<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
             </h1>
-            <h2 className="text-2xl lg:text-3xl font-semibold text-gray-600 mb-8">
-              Immortalisez vos événements avec originalité
-            </h2>
           </div>
         </div>
       </section>
@@ -112,13 +121,16 @@ const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhoto
                 <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center">
                   <Heart className="w-6 h-6 text-black" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Photobooth Paris 5 : Immortalisez vos événements avec originalité</h2>
+                <h2 className="text-3xl font-bold text-black">Location photobooth Paris 9</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Niché au cœur du Quartier Latin, ce quartier historique dévoile bien plus qu'un simple décor parisien. Entre ses murs chargés d'histoire et son effervescence contemporaine, il forme l'écrin idéal pour vos moments spéciaux. Chez « The Pix », nous capturons cette magie éphémère grâce à nos solutions de location de photobooth, bien plus qu'un service – une expérience à vivre.
+                Avec ses grandes avenues haussmanniennes et ses passages couverts secrets, le 9ème arrondissement de Paris est un terrain de jeu idéal pour tout type d'événement privé ou professionnel. Qu'il s'agisse d'un lancement de produit au cœur du Quartier de l'Opéra ou d'une réception intimiste dans les ruelles de la Nouvelle Athènes, cet arrondissement vibrant offre un cadre propice pour créer des moments inoubliables.
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                C'est dans ce décor vivant que The Pix vous propose de louer un photobooth dernier cri pour sublimer vos rassemblements.
               </p>
               <div className="mt-8">
-                <button 
+                <button
                   onClick={onQuoteRequest}
                   className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-semibold text-lg"
                 >
@@ -128,98 +140,140 @@ const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhoto
             </div>
           </section>
 
-          {/* Photobooth à Paris */}
+          {/* Photobooth tendance */}
           <section className="mb-16">
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Photobooth à Paris : l'alliance parfaite entre innovation et authenticité</h2>
+                <h2 className="text-3xl font-bold text-black">Le photobooth : la tendance du moment à Paris</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Imaginez un dispositif qui transforme chaque sourire en œuvre d'art. Nos photobooths nouvelle génération apportent une touche de modernité discrète à vos événements professionnels. Leur secret ? Un écran tactile intuitif qui rend la photographie accessible à tous, tout en maintenant une qualité d'image irréprochable. Vos collaborateurs ou invités repartent avec bien plus qu'un selfie : la trace tangible d'un moment partagé.
+                Mariages romantiques Place Saint-Georges, soirées d'entreprise au Palais Garnier ou anniversaires festifs aux abords de Pigalle : le photobooth apporte une touche d'originalité et de convivialité à tout type de réception, dans une ambiance décontractée.
               </p>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Choisir notre animation photobooth, c'est opter pour une attraction qui captera tous les regards. Mariages élégants, séminaires dynamiques ou lancements produits – chaque occasion mérite son livre d'images vivant. La particularité ? Ces clichés spontanés révèlent souvent plus d'émotions que les poses étudiées.
-              </p>
+              <p className="text-gray-700 text-lg leading-relaxed">Le photobooth est devenu une animation incontournable, plébiscitée autant par les jeunes que par les moins jeunes.</p>
+              <div className="mt-6 bg-white p-6 rounded-xl">
+                <h3 className="font-bold text-black mb-3 text-xl">location photobooth paris 9</h3>
+                <p className="text-gray-700">
+                  Vos invités pourront se prendre en photo dans notre cabine photo dernier cri et repartir instantanément avec leurs photos souvenirs. L'occasion rêvée de créer une ambiance festive lors de votre événement à Paris 9 !
+                </p>
+              </div>
             </div>
           </section>
 
-          {/* Réseaux sociaux */}
+          {/* Technologies */}
           <section className="mb-16">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
-                  <Share2 className="w-6 h-6 text-white" />
+                  <Monitor className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Réseaux sociaux : donnez une résonance à vos événements</h2>
+                <h2 className="text-3xl font-bold text-black">Une cabine photo intégrant technologies de pointe</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Dans l'ère du partage instantané, notre photobooth devient votre meilleur ambassadeur digital. En quelques secondes, les participants diffusent leurs photos personnalisables sur les réseaux sociaux, créant un buzz naturel autour de votre manifestation. Une vitrine vivante qui traverse les frontières du 5ème arrondissement jusqu'aux quatre coins de l'Île-de-France.
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                Nos bornes conjuguent technologies de pointe et design moderne pour une expérience optimale :
               </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Appareil photo professionnel pour des clichés haute définition</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Écran tactile dernier cri pour personnaliser facilement vos images</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Impression instantanée de vos photos souvenirs</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Partage immédiat sur les réseaux sociaux</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Grand choix d'accessoires drôles et de déguisements</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-green-500" />
+                      <span className="text-gray-700">Fonds d'écran personnalisés pour sublimer vos photos</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Location de photobooth */}
+          {/* Réservation */}
           <section className="mb-16">
             <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
                   <Settings className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Location de photobooth : sur mesure pour chaque moment clé</h2>
+                <h2 className="text-3xl font-bold text-black">Réservez votre photobooth en quelques clics</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Notre force ? Savoir s'effacer pour mieux mettre en lumière vos invités. Que votre événement se déroule dans un hôtel particulier du Marais ou un lieu atypique de Saint-Denis, nos bornes photo s'intègrent avec élégance. Le résultat ? Des souvenirs imprimés qui prennent vie entre les mains des participants, déclenchant souvent des rires complices et des anecdotes inattendues.
+                Grâce à notre site web accessible 24h/24 et 7j/7, réserver un photobooth à Paris se fait en toute simplicité. Indiquez simplement la date, le lieu de votre réception et vos options préférées. Notre équipe gère ensuite l'ensemble de la logistique de A à Z afin que vous puissiez vous concentrer sur l'accueil de vos invités.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Au-delà de l'instant présent, nous pensons à la pérennité des souvenirs. L'option de partage numérique permet de constituer une galerie évolutive, consultable bien après la fin des festivités. Une manière moderne de prolonger l'expérience.
+                Le jour J, profitez pleinement de chaque instant pendant que nous nous occupons entièrement du photobooth.
+                Notre personnel reste également à votre écoute pour répondre à toutes vos questions.
               </p>
             </div>
           </section>
 
-          {/* Animation photobooth */}
+          {/* Partage */}
           <section className="mb-16">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-2xl">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
-                  <Users className="w-6 h-6 text-white" />
+                  <Share2 className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Animation photobooth : l'art de sublimer les rencontres</h2>
+                <h2 className="text-3xl font-bold text-black">Partagez vos meilleurs moments sur les réseaux sociaux</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Derrière chaque rideau de notre photobooth à Paris se joue une micro-scène de vie. Nos équipes l'ont constaté à maintes reprises : c'est souvent autour de ces bornes que naissent les interactions les plus authentiques. Un outil de communication qui devient paradoxalement… un facilitateur de vraies connexions humaines.
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                La cabine photo permet à vos invités de partager leurs plus belles photos sur les réseaux sociaux et donner une visibilité accrue à votre événement au-delà de Paris 9, notamment via la création d'un hashtag dédié.
               </p>
             </div>
           </section>
 
-          {/* Personnalisation */}
+          {/* Image de marque */}
           <section className="mb-16">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
                   <Eye className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Personnalisation : votre empreinte dans chaque cliché</h2>
+                <h2 className="text-3xl font-bold text-black">Un accessoire tendance pour une image de marque branchée</h2>
               </div>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                Louer un photobooth lors de vos événements à Paris, c'est l'assurance de marquer les esprits et d'apporter une touche d'originalité à votre image. Grâce à la personnalisation de la cabine et des accessoires, le photobooth reflète parfaitement l'esprit de votre soirée.
+              </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Notre écran tactile devient votre canvas créatif. Logo discret, message éphémère ou fond contextuel – chaque détail s'adapte à l'identité de votre événement. Ces choix minutieux font la différence entre une simple photo et un souvenir mémorable.
+                Vos invités sont également susceptibles de partager leurs photos souvenirs insolites sur les réseaux sociaux, contribuant ainsi à accroître votre notoriété de manière positive et durable.
               </p>
             </div>
           </section>
 
-          {/* Organisation d'événements */}
+          {/* Équipe */}
           <section className="mb-16">
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
                   <Award className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Organisation d'événements : l'expertise qui fait la différence</h2>
+                <h2 className="text-3xl font-bold text-black">Une équipe d'experts à votre service</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Gagner en sérénité tout en offrant une animation originale : tel est notre engagement. Notre service de location de photobooth à Paris inclut une installation sans accroc et un accompagnement sur mesure. Nous maîtrisons les particularités des lieux parisiens – accès, contraintes techniques, flux des invités – pour une intégration fluide à votre programmation.
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                Chez The Pix, vous bénéficiez de l'accompagnement sur mesure d'une équipe passionnée, de la prise de contact à la fin de votre réception.
               </p>
             </div>
           </section>
@@ -231,18 +285,15 @@ const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhoto
                 <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center">
                   <Star className="w-6 h-6 text-black" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Et si votre prochain événement devenait légendaire ?</h2>
+                <h2 className="text-3xl font-bold text-black">Prêt à faire sourire vos invités ?</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Et si votre prochain événement dans le 5ème arrondissement devenait la référence dont tout le monde parlera ? Chez « The Pix », nous transformons les instants en héritage visuel. Découvrez notre formule clé en main et laissez-vous surprendre par l'alchimie entre technologie et émotions.
-              </p>
               <div className="bg-white p-6 rounded-xl">
-                <h3 className="font-bold text-black mb-4 text-xl">Prêt à transformer votre événement en une expérience inoubliable ?</h3>
+                <h3 className="font-bold text-black mb-4 text-xl">Réservez votre photobooth à Paris 9 dès maintenant</h3>
                 <p className="text-gray-700 mb-6">
-                  Réservez dès maintenant votre photobooth dans le 5ème arrondissement de Paris et créez des souvenirs exceptionnels pour vos invités.
+                  Pour louer un photobooth innovant et tendance au cœur de Paris, rendez-vous sur ThePix.fr ! Notre service de location sur mesure répondra à toutes vos attentes. Contactez-nous vite !
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
+                  <button
                     onClick={onQuoteRequest}
                     className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
                   >
@@ -264,15 +315,16 @@ const Paris5Page: React.FC<Paris5PageProps> = ({ onBack, onQuoteRequest, onPhoto
           { label: 'Location photobooth Paris 2', onClick: onParis2Page },
           { label: 'Location photobooth Paris 3', onClick: onParis3Page },
           { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onBack },
+          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
           { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
+          { label: 'Location photobooth Paris 9', onClick: onBack },
         ]}
       />
     </div>
   );
 };
 
-export default Paris5Page;
+export default Paris9Page;
+
