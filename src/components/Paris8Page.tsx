@@ -102,8 +102,8 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Louer un photobooth
-              <span className="text-yellow-400 relative">{' '}Paris 8<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
+              Louer un photobooth dans le
+              <span className="text-yellow-400 relative">{' '}8ème arrondissement de Paris<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
             </h1>
           </div>
         </div>
@@ -122,10 +122,11 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                 <h2 className="text-3xl font-bold text-black">Location photobooth Paris 8</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Avec ses avenues prestigieuses et ses monuments mythiques comme les Champs-Élysées,
-                l'Arc de Triomphe ou la Place de la Concorde, le 8ème arrondissement est un écrin
-                d'exception pour vos événements. The Pix vous propose d'y installer un photobooth
-                pour sublimer vos réceptions privées ou professionnelles.
+                Avec ses avenues prestigieuses et ses lieux mythiques comme les Champs-Élysées,
+                l'Arc de Triomphe ou encore la célèbre Place de la Concorde, le 8ème arrondissement
+                de Paris constitue un écrin de choix pour des événements d'exception. C'est dans ce
+                décor grandiose que The Pix vous propose de louer un photobooth pour sublimer vos
+                événements privés ou professionnels.
               </p>
               <div className="mt-8">
                 <button
@@ -148,16 +149,20 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                 <h2 className="text-3xl font-bold text-black">Le photobooth : l'animation tendance dans la capitale</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Mariage sur l'avenue Montaigne, cocktail professionnel au pied de l'Arc de Triomphe
-                ou soirée étudiante près des Champs-Élysées : la borne à selfie apporte une touche
-                d'originalité et de convivialité à tout rassemblement.
+                De plus en plus d'hôtes choisissent de louer un photobooth ou une cabine photo pour
+                leurs événements, et ce n'est pas un hasard ! Qu'il s'agisse d'un mariage sur la
+                luxueuse Avenue Montaigne, d'un cocktail professionnel au pied de l'Arc de Triomphe
+                ou encore d'une soirée étudiante près des Champs-Élysées, le photobooth apporte une
+                touche d'originalité et de convivialité à tout type de rassemblement.
               </p>
               <div className="mt-6 bg-white p-6 rounded-xl">
                 <h3 className="font-bold text-black mb-3 text-xl">location photobooth paris 8</h3>
                 <p className="text-gray-700">
-                  Vos invités se prennent en photo et repartent avec leurs souvenirs numériques grâce
-                  à notre cabine dernière génération. Une animation incontournable pour une ambiance
-                  joyeuse et festive.
+                  Vos invités pourront se prendre en photo et repartir avec leurs photos numériques
+                  souvenirs grâce à notre cabine photo dernière génération. De quoi créer
+                  instantanément une ambiance joyeuse et festive lors de votre réception à Paris 8 !
+                  Le photobooth est d'ailleurs devenu un incontournable des événements réussis,
+                  apprécié autant des jeunes que des moins jeunes.
                 </p>
               </div>
             </div>
@@ -209,6 +214,11 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                   </ul>
                 </div>
               </div>
+              <p className="text-gray-700 text-lg leading-relaxed mt-6">
+                Grâce à ces technologies innovantes, notre photobooth garantit une animation mémorable
+                lors de vos événements. Vos invités repartiront avec des photos personnalisées, à la
+                fois amusantes et sophistiquées, dans la pure tradition parisienne !
+              </p>
             </div>
           </section>
 
@@ -222,8 +232,14 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                 <h2 className="text-3xl font-bold text-black">Réservez votre photobooth en quelques clics</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Notre site web accessible 7j/7 permet de réserver facilement : indiquez la date, le
-                lieu et vos options, nous gérons le transport, l'installation et le démontage.
+                Grâce à notre site web accessible 7j/7 et 24h/24, réserver un photobooth à Paris se
+                fait en toute simplicité. Indiquez la date, le lieu de votre événement et vos options
+                préférées, et nous nous chargeons du reste ! Nous gérons toute la logistique de A à Z :
+                transport du matériel, installation sur site, maintenance pendant la soirée, puis
+                démontage. Le jour J, vous pouvez ainsi pleinement profiter de vos convives !
+              </p>
+              <p className="mt-4 text-gray-700">
+                À lire : <a href="#" className="text-yellow-500 hover:underline">Animer votre soirée d'entreprise avec un photobooth</a>
               </p>
             </div>
           </section>
@@ -238,8 +254,10 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                 <h2 className="text-3xl font-bold text-black">Partagez vos moments forts</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Les photos peuvent être diffusées instantanément sur les réseaux sociaux ou dans notre
-                galerie. Créez un hashtag dédié pour prolonger la fête au-delà de votre événement.
+                La cabine photo permet à vos invités de partager leurs plus belles photos sur les réseaux
+                sociaux et de donner une vitrine à votre événement bien au-delà de Paris 8. Vous pouvez
+                également créer un hashtag dédié pour rassembler toutes les photos souvenirs et faire
+                vivre les temps forts de votre soirée, même une fois celle-ci terminée !
               </p>
             </div>
           </section>
@@ -254,8 +272,15 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                 <h2 className="text-3xl font-bold text-black">Un accessoire tendance pour votre image</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Grâce à la personnalisation de l'habillage, des accessoires ou des tirages, le
-                photobooth reflète votre univers et renforce votre notoriété.
+                Louer un photobooth lors de vos événements à Paris, c'est l'assurance de marquer les esprits
+                et d'apporter une touche d'originalité à votre image. Grâce à la personnalisation sur mesure
+                (habillage, accessoires, tirages photos), le photobooth devient même le reflet de votre univers
+                pour une intégration parfaite dans le décor de votre soirée à thème !
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Et si vos convives repartent avec des photos souvenirs pleines de folie et, en prime, des
+                goodies estampillés à votre effigie, soyez sûrs qu'ils ne sont pas prêts de vous oublier !
+                Le photobooth contribue ainsi largement à votre notoriété, bien au-delà de votre soirée.
               </p>
             </div>
           </section>
@@ -270,8 +295,8 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                 <h2 className="text-3xl font-bold text-black">Une équipe d'experts à votre écoute</h2>
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                Notre équipe vous accompagne de A à Z pour louer et installer facilement votre
-                photobooth au cœur de Paris.
+                Chez The Pix, vous bénéficiez de l'accompagnement sur mesure d'une équipe d'experts de A à Z
+                pour vous aider à louer et installer votre photobooth facilement.
               </p>
             </div>
           </section>
@@ -285,22 +310,26 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
                 </div>
                 <h2 className="text-3xl font-bold text-black">Prêt à faire sourire vos invités ?</h2>
               </div>
-              <div className="bg-white p-6 rounded-xl">
-                <h3 className="font-bold text-black mb-4 text-xl">Réservez votre photobooth à Paris 8 dès maintenant</h3>
-                <p className="text-gray-700 mb-6">
-                  Faites de votre événement un moment inoubliable avec The Pix.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={onQuoteRequest}
-                    className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
-                  >
-                    Demander un devis
-                  </button>
+                <div className="bg-white p-6 rounded-xl">
+                  <h3 className="font-bold text-black mb-4 text-xl">
+                    Pour louer un photobooth innovant et tendance au cœur de Paris, rendez-vous sur ThePix.fr !
+                  </h3>
+                  <p className="text-gray-700 mb-6">
+                    Notre service de location sur mesure répondra à toutes vos attentes. Réservez dès maintenant votre
+                    photobooth à Paris 8 et faites de votre événement un moment inoubliable. Alors à vos cabines... prêts ?
+                    Souriez !
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button
+                      onClick={onQuoteRequest}
+                      className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
+                    >
+                      Demander un devis
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
         </article>
       </div>
 
