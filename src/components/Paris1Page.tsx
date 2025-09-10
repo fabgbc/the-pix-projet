@@ -26,9 +26,10 @@ interface Paris1PageProps {
   onParis6Page?: () => void;
   onParis7Page?: () => void;
   onParis8Page?: () => void;
+  onParis9Page?: () => void;
 }
 
-const Paris1Page: React.FC<Paris1PageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onSEOPage, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page }) => {
+const Paris1Page: React.FC<Paris1PageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onSEOPage, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -328,6 +329,7 @@ const Paris1Page: React.FC<Paris1PageProps> = ({ onBack, onQuoteRequest, onPhoto
           { label: 'Location photobooth Paris 6', onClick: onParis6Page },
           { label: 'Location photobooth Paris 7', onClick: onParis7Page },
           { label: 'Location photobooth Paris 8', onClick: onParis8Page },
+          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
         ]}
       />
     </div>
