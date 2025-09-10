@@ -14,6 +14,7 @@ import Paris5Page from './components/Paris5Page';
 import Paris6Page from './components/Paris6Page';
 import Paris7Page from './components/Paris7Page';
 import Paris8Page from './components/Paris8Page';
+import Paris9Page from './components/Paris9Page';
 import { 
   Camera,
   Sparkles,
@@ -51,6 +52,7 @@ function App() {
   const [showParis6Page, setShowParis6Page] = useState(false);
   const [showParis7Page, setShowParis7Page] = useState(false);
   const [showParis8Page, setShowParis8Page] = useState(false);
+  const [showParis9Page, setShowParis9Page] = useState(false);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // Fonction pour remettre le scroll en haut
@@ -61,7 +63,7 @@ function App() {
   // Effet pour remettre le scroll en haut quand on change de page
   useEffect(() => {
     scrollToTop();
-  }, [showQuotePage, showPhotoboothDetails, showAIAnimations, showDemoRequest, showSEOPage, showPhotographerAI, showParis1Page, showParis2Page, showParis3Page, showParis4Page, showParis5Page, showParis6Page, showParis7Page, showParis8Page]);
+  }, [showQuotePage, showPhotoboothDetails, showAIAnimations, showDemoRequest, showSEOPage, showPhotographerAI, showParis1Page, showParis2Page, showParis3Page, showParis4Page, showParis5Page, showParis6Page, showParis7Page, showParis8Page, showParis9Page]);
 
   // Fonction pour gérer le retour depuis la page de devis
   const handleQuotePageBack = () => {
@@ -97,6 +99,9 @@ function App() {
         break;
       case 'paris8':
         setShowParis8Page(true);
+        break;
+      case 'paris9':
+        setShowParis9Page(true);
         break;
       default:
         // Rester sur la page principale
@@ -149,6 +154,10 @@ function App() {
         setShowQuotePage(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowQuotePage(false);
+        setShowParis9Page(true);
+      }}
     />;
   }
 
@@ -194,6 +203,10 @@ function App() {
       onParis8Page={() => {
         setShowPhotoboothDetails(false);
         setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowPhotoboothDetails(false);
+        setShowParis9Page(true);
       }}
       onQuoteRequest={() => {
         setShowPhotoboothDetails(false);
@@ -249,6 +262,10 @@ function App() {
         setShowAIAnimations(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowAIAnimations(false);
+        setShowParis9Page(true);
+      }}
       onQuoteRequest={() => {
         setShowAIAnimations(false);
         openQuotePage('aiAnimations');
@@ -294,6 +311,10 @@ function App() {
       onParis8Page={() => {
         setShowDemoRequest(false);
         setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowDemoRequest(false);
+        setShowParis9Page(true);
       }}
       onQuoteRequest={() => {
         setShowDemoRequest(false);
@@ -349,6 +370,10 @@ function App() {
         setShowSEOPage(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowSEOPage(false);
+        setShowParis9Page(true);
+      }}
     />;
   }
 
@@ -403,6 +428,10 @@ function App() {
         setShowPhotographerAI(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowPhotographerAI(false);
+        setShowParis9Page(true);
+      }}
     />;
   }
 
@@ -452,6 +481,10 @@ function App() {
       onParis8Page={() => {
         setShowParis1Page(false);
         setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis1Page(false);
+        setShowParis9Page(true);
       }}
     />;
   }
@@ -503,6 +536,10 @@ function App() {
         setShowParis2Page(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowParis2Page(false);
+        setShowParis9Page(true);
+      }}
     />;
   }
 
@@ -552,6 +589,10 @@ function App() {
       onParis8Page={() => {
         setShowParis3Page(false);
         setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis3Page(false);
+        setShowParis9Page(true);
       }}
     />;
   }
@@ -603,6 +644,10 @@ function App() {
         setShowParis4Page(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowParis4Page(false);
+        setShowParis9Page(true);
+      }}
     />;
   }
 
@@ -652,6 +697,10 @@ function App() {
       onParis8Page={() => {
         setShowParis5Page(false);
         setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis5Page(false);
+        setShowParis9Page(true);
       }}
     />;
   }
@@ -703,6 +752,10 @@ function App() {
         setShowParis6Page(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowParis6Page(false);
+        setShowParis9Page(true);
+      }}
     />;
   }
 
@@ -753,6 +806,10 @@ function App() {
         setShowParis7Page(false);
         setShowParis8Page(true);
       }}
+      onParis9Page={() => {
+        setShowParis7Page(false);
+        setShowParis9Page(true);
+      }}
     />;
   }
 
@@ -802,6 +859,64 @@ function App() {
       onParis7Page={() => {
         setShowParis8Page(false);
         setShowParis7Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis8Page(false);
+        setShowParis9Page(true);
+      }}
+    />;
+  }
+
+  if (showParis9Page) {
+    return <Paris9Page
+      onBack={() => setShowParis9Page(false)}
+      onQuoteRequest={() => {
+        setShowParis9Page(false);
+        openQuotePage('paris9');
+      }}
+      onPhotoboothDetails={() => {
+        setShowParis9Page(false);
+        setShowPhotoboothDetails(true);
+      }}
+      onAIAnimations={() => {
+        setShowParis9Page(false);
+        setShowAIAnimations(true);
+      }}
+      onSEOPage={() => {
+        setShowParis9Page(false);
+        setShowSEOPage(true);
+      }}
+      onParis1Page={() => {
+        setShowParis9Page(false);
+        setShowParis1Page(true);
+      }}
+      onParis2Page={() => {
+        setShowParis9Page(false);
+        setShowParis2Page(true);
+      }}
+      onParis3Page={() => {
+        setShowParis9Page(false);
+        setShowParis3Page(true);
+      }}
+      onParis4Page={() => {
+        setShowParis9Page(false);
+        setShowParis4Page(true);
+      }}
+      onParis5Page={() => {
+        setShowParis9Page(false);
+        setShowParis5Page(true);
+      }}
+      onParis6Page={() => {
+        setShowParis9Page(false);
+        setShowParis6Page(true);
+      }}
+      onParis7Page={() => {
+        setShowParis9Page(false);
+        setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis9Page(false);
+        setShowParis8Page(true);
       }}
     />;
   }
@@ -1623,6 +1738,12 @@ function App() {
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 8
+                </button>
+                <button
+                  onClick={() => setShowParis9Page(true)}
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                >
+                  Location photobooth Paris 9
                 </button>
               </div>
             </div>
