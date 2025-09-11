@@ -19,6 +19,7 @@ import Paris10Page from './components/Paris10Page';
 import Paris11Page from './components/Paris11Page';
 import Paris12Page from './components/Paris12Page';
 import Paris13Page from './components/Paris13Page';
+import Paris14Page from './components/Paris14Page';
 import { 
   Camera,
   Sparkles,
@@ -61,6 +62,7 @@ function App() {
   const [showParis11Page, setShowParis11Page] = useState(false);
   const [showParis12Page, setShowParis12Page] = useState(false);
   const [showParis13Page, setShowParis13Page] = useState(false);
+  const [showParis14Page, setShowParis14Page] = useState(false);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // Fonction pour remettre le scroll en haut
@@ -91,6 +93,7 @@ function App() {
     showParis11Page,
     showParis12Page,
     showParis13Page,
+    showParis14Page,
   ]);
 
   // Fonction pour gérer le retour depuis la page de devis
@@ -142,6 +145,9 @@ function App() {
         break;
       case 'paris13':
         setShowParis13Page(true);
+        break;
+      case 'paris14':
+        setShowParis14Page(true);
         break;
       default:
         // Rester sur la page principale
@@ -213,6 +219,10 @@ function App() {
       onParis13Page={() => {
         setShowQuotePage(false);
         setShowParis13Page(true);
+      }}
+      onParis14Page={() => {
+        setShowQuotePage(false);
+        setShowParis14Page(true);
       }}
     />;
   }
@@ -1233,6 +1243,80 @@ function App() {
     />;
   }
 
+  if (showParis14Page) {
+    return <Paris14Page
+      onBack={() => setShowParis14Page(false)}
+      onQuoteRequest={() => {
+        setShowParis14Page(false);
+        openQuotePage('paris14');
+      }}
+      onPhotoboothDetails={() => {
+        setShowParis14Page(false);
+        setShowPhotoboothDetails(true);
+      }}
+      onAIAnimations={() => {
+        setShowParis14Page(false);
+        setShowAIAnimations(true);
+      }}
+      onSEOPage={() => {
+        setShowParis14Page(false);
+        setShowSEOPage(true);
+      }}
+      onParis1Page={() => {
+        setShowParis14Page(false);
+        setShowParis1Page(true);
+      }}
+      onParis2Page={() => {
+        setShowParis14Page(false);
+        setShowParis2Page(true);
+      }}
+      onParis3Page={() => {
+        setShowParis14Page(false);
+        setShowParis3Page(true);
+      }}
+      onParis4Page={() => {
+        setShowParis14Page(false);
+        setShowParis4Page(true);
+      }}
+      onParis5Page={() => {
+        setShowParis14Page(false);
+        setShowParis5Page(true);
+      }}
+      onParis6Page={() => {
+        setShowParis14Page(false);
+        setShowParis6Page(true);
+      }}
+      onParis7Page={() => {
+        setShowParis14Page(false);
+        setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis14Page(false);
+        setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis14Page(false);
+        setShowParis9Page(true);
+      }}
+      onParis10Page={() => {
+        setShowParis14Page(false);
+        setShowParis10Page(true);
+      }}
+      onParis11Page={() => {
+        setShowParis14Page(false);
+        setShowParis11Page(true);
+      }}
+      onParis12Page={() => {
+        setShowParis14Page(false);
+        setShowParis12Page(true);
+      }}
+      onParis13Page={() => {
+        setShowParis14Page(false);
+        setShowParis13Page(true);
+      }}
+    />;
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -2080,6 +2164,12 @@ function App() {
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 13
+                </button>
+                <button
+                  onClick={() => setShowParis14Page(true)}
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                >
+                  Location photobooth Paris 14
                 </button>
               </div>
             </div>
