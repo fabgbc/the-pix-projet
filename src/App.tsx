@@ -16,7 +16,6 @@ import Paris7Page from './components/Paris7Page';
 import Paris8Page from './components/Paris8Page';
 import Paris9Page from './components/Paris9Page';
 import Paris10Page from './components/Paris10Page';
-import Paris11Page from './components/Paris11Page';
 import { 
   Camera,
   Sparkles,
@@ -56,7 +55,6 @@ function App() {
   const [showParis8Page, setShowParis8Page] = useState(false);
   const [showParis9Page, setShowParis9Page] = useState(false);
   const [showParis10Page, setShowParis10Page] = useState(false);
-  const [showParis11Page, setShowParis11Page] = useState(false);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // Fonction pour remettre le scroll en haut
@@ -84,7 +82,6 @@ function App() {
     showParis8Page,
     showParis9Page,
     showParis10Page,
-    showParis11Page,
   ]);
 
   // Fonction pour gérer le retour depuis la page de devis
@@ -127,9 +124,6 @@ function App() {
         break;
       case 'paris10':
         setShowParis10Page(true);
-        break;
-      case 'paris11':
-        setShowParis11Page(true);
         break;
       default:
         // Rester sur la page principale
@@ -1003,68 +997,6 @@ function App() {
       onParis9Page={() => {
         setShowParis10Page(false);
         setShowParis9Page(true);
-      }}
-    />;
-  }
-
-  if (showParis11Page) {
-    return <Paris11Page
-      onBack={() => setShowParis11Page(false)}
-      onQuoteRequest={() => {
-        setShowParis11Page(false);
-        openQuotePage('paris11');
-      }}
-      onPhotoboothDetails={() => {
-        setShowParis11Page(false);
-        setShowPhotoboothDetails(true);
-      }}
-      onAIAnimations={() => {
-        setShowParis11Page(false);
-        setShowAIAnimations(true);
-      }}
-      onSEOPage={() => {
-        setShowParis11Page(false);
-        setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis11Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis11Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis11Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis11Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis11Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis11Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis11Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis11Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis11Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis11Page(false);
-        setShowParis10Page(true);
       }}
     />;
   }
