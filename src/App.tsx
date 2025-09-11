@@ -20,6 +20,7 @@ import Paris11Page from './components/Paris11Page';
 import Paris12Page from './components/Paris12Page';
 import Paris13Page from './components/Paris13Page';
 import Paris14Page from './components/Paris14Page';
+import Paris15Page from './components/Paris15Page';
 import { 
   Camera,
   Sparkles,
@@ -63,6 +64,7 @@ function App() {
   const [showParis12Page, setShowParis12Page] = useState(false);
   const [showParis13Page, setShowParis13Page] = useState(false);
   const [showParis14Page, setShowParis14Page] = useState(false);
+  const [showParis15Page, setShowParis15Page] = useState(false);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // Fonction pour remettre le scroll en haut
@@ -94,6 +96,7 @@ function App() {
     showParis12Page,
     showParis13Page,
     showParis14Page,
+    showParis15Page,
   ]);
 
   // Fonction pour gérer le retour depuis la page de devis
@@ -148,6 +151,9 @@ function App() {
         break;
       case 'paris14':
         setShowParis14Page(true);
+        break;
+      case 'paris15':
+        setShowParis15Page(true);
         break;
       default:
         // Rester sur la page principale
@@ -223,6 +229,10 @@ function App() {
       onParis14Page={() => {
         setShowQuotePage(false);
         setShowParis14Page(true);
+      }}
+      onParis15Page={() => {
+        setShowQuotePage(false);
+        setShowParis15Page(true);
       }}
     />;
   }
@@ -1317,6 +1327,84 @@ function App() {
     />;
   }
 
+  if (showParis15Page) {
+    return <Paris15Page
+      onBack={() => setShowParis15Page(false)}
+      onQuoteRequest={() => {
+        setShowParis15Page(false);
+        openQuotePage('paris15');
+      }}
+      onPhotoboothDetails={() => {
+        setShowParis15Page(false);
+        setShowPhotoboothDetails(true);
+      }}
+      onAIAnimations={() => {
+        setShowParis15Page(false);
+        setShowAIAnimations(true);
+      }}
+      onSEOPage={() => {
+        setShowParis15Page(false);
+        setShowSEOPage(true);
+      }}
+      onParis1Page={() => {
+        setShowParis15Page(false);
+        setShowParis1Page(true);
+      }}
+      onParis2Page={() => {
+        setShowParis15Page(false);
+        setShowParis2Page(true);
+      }}
+      onParis3Page={() => {
+        setShowParis15Page(false);
+        setShowParis3Page(true);
+      }}
+      onParis4Page={() => {
+        setShowParis15Page(false);
+        setShowParis4Page(true);
+      }}
+      onParis5Page={() => {
+        setShowParis15Page(false);
+        setShowParis5Page(true);
+      }}
+      onParis6Page={() => {
+        setShowParis15Page(false);
+        setShowParis6Page(true);
+      }}
+      onParis7Page={() => {
+        setShowParis15Page(false);
+        setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis15Page(false);
+        setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis15Page(false);
+        setShowParis9Page(true);
+      }}
+      onParis10Page={() => {
+        setShowParis15Page(false);
+        setShowParis10Page(true);
+      }}
+      onParis11Page={() => {
+        setShowParis15Page(false);
+        setShowParis11Page(true);
+      }}
+      onParis12Page={() => {
+        setShowParis15Page(false);
+        setShowParis12Page(true);
+      }}
+      onParis13Page={() => {
+        setShowParis15Page(false);
+        setShowParis13Page(true);
+      }}
+      onParis14Page={() => {
+        setShowParis15Page(false);
+        setShowParis14Page(true);
+      }}
+    />;
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -2170,6 +2258,12 @@ function App() {
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 14
+                </button>
+                <button
+                  onClick={() => setShowParis15Page(true)}
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                >
+                  Location photobooth Paris 15
                 </button>
               </div>
             </div>
