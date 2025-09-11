@@ -17,6 +17,7 @@ import Paris8Page from './components/Paris8Page';
 import Paris9Page from './components/Paris9Page';
 import Paris10Page from './components/Paris10Page';
 import Paris11Page from './components/Paris11Page';
+import Paris12Page from './components/Paris12Page';
 import { 
   Camera,
   Sparkles,
@@ -57,6 +58,7 @@ function App() {
   const [showParis9Page, setShowParis9Page] = useState(false);
   const [showParis10Page, setShowParis10Page] = useState(false);
   const [showParis11Page, setShowParis11Page] = useState(false);
+  const [showParis12Page, setShowParis12Page] = useState(false);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // Fonction pour remettre le scroll en haut
@@ -85,6 +87,7 @@ function App() {
     showParis9Page,
     showParis10Page,
     showParis11Page,
+    showParis12Page,
   ]);
 
   // Fonction pour gérer le retour depuis la page de devis
@@ -130,6 +133,9 @@ function App() {
         break;
       case 'paris11':
         setShowParis11Page(true);
+        break;
+      case 'paris12':
+        setShowParis12Page(true);
         break;
       default:
         // Rester sur la page principale
@@ -193,6 +199,10 @@ function App() {
       onParis11Page={() => {
         setShowQuotePage(false);
         setShowParis11Page(true);
+      }}
+      onParis12Page={() => {
+        setShowQuotePage(false);
+        setShowParis12Page(true);
       }}
     />;
   }
@@ -1077,6 +1087,72 @@ function App() {
     />;
   }
 
+  if (showParis12Page) {
+    return <Paris12Page
+      onBack={() => setShowParis12Page(false)}
+      onQuoteRequest={() => {
+        setShowParis12Page(false);
+        openQuotePage('paris12');
+      }}
+      onPhotoboothDetails={() => {
+        setShowParis12Page(false);
+        setShowPhotoboothDetails(true);
+      }}
+      onAIAnimations={() => {
+        setShowParis12Page(false);
+        setShowAIAnimations(true);
+      }}
+      onSEOPage={() => {
+        setShowParis12Page(false);
+        setShowSEOPage(true);
+      }}
+      onParis1Page={() => {
+        setShowParis12Page(false);
+        setShowParis1Page(true);
+      }}
+      onParis2Page={() => {
+        setShowParis12Page(false);
+        setShowParis2Page(true);
+      }}
+      onParis3Page={() => {
+        setShowParis12Page(false);
+        setShowParis3Page(true);
+      }}
+      onParis4Page={() => {
+        setShowParis12Page(false);
+        setShowParis4Page(true);
+      }}
+      onParis5Page={() => {
+        setShowParis12Page(false);
+        setShowParis5Page(true);
+      }}
+      onParis6Page={() => {
+        setShowParis12Page(false);
+        setShowParis6Page(true);
+      }}
+      onParis7Page={() => {
+        setShowParis12Page(false);
+        setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis12Page(false);
+        setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis12Page(false);
+        setShowParis9Page(true);
+      }}
+      onParis10Page={() => {
+        setShowParis12Page(false);
+        setShowParis10Page(true);
+      }}
+      onParis11Page={() => {
+        setShowParis12Page(false);
+        setShowParis11Page(true);
+      }}
+    />;
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -1912,6 +1988,12 @@ function App() {
                   className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
                 >
                   Location photobooth Paris 11
+                </button>
+                <button
+                  onClick={() => setShowParis12Page(true)}
+                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                >
+                  Location photobooth Paris 12
                 </button>
               </div>
             </div>
