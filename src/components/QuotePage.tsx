@@ -26,12 +26,13 @@ interface QuotePageProps {
   onParis7Page?: () => void;
   onParis8Page?: () => void;
   onParis9Page?: () => void;
-  onParis10Page?: () => void;
-  onParis11Page?: () => void;
-  onParis12Page?: () => void;
-}
+    onParis10Page?: () => void;
+    onParis11Page?: () => void;
+    onParis12Page?: () => void;
+    onParis13Page?: () => void;
+  }
 
-const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page, onParis10Page, onParis11Page, onParis12Page }) => {
+const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page, onParis10Page, onParis11Page, onParis12Page, onParis13Page }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     clientType: '', // 'enterprise' or 'wedding'
@@ -560,6 +561,7 @@ const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, 
           { label: 'Location photobooth Paris 10', onClick: onParis10Page },
           { label: 'Location photobooth Paris 11', onClick: onParis11Page },
           { label: 'Location photobooth Paris 12', onClick: onParis12Page },
+          { label: 'Location photobooth Paris 13', onClick: onParis13Page },
         ]}
       />
     </div>
