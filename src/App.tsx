@@ -21,7 +21,8 @@ import Paris12Page from './components/Paris12Page';
 import Paris13Page from './components/Paris13Page';
 import Paris14Page from './components/Paris14Page';
 import Paris15Page from './components/Paris15Page';
-import { 
+import Footer from './components/Footer';
+import {
   Camera,
   Sparkles,
   Users,
@@ -33,13 +34,7 @@ import {
   Menu,
   X,
   ArrowRight,
-  Check,
-  Phone,
-  Mail,
-  MapPin,
-  Instagram,
-  Facebook,
-  Linkedin
+  Check
 } from 'lucide-react';
 
 function App() {
@@ -166,6 +161,24 @@ function App() {
     setPreviousPage(fromPage);
     setShowQuotePage(true);
   };
+
+  const arrondissementLinks = [
+    { label: 'Location photobooth Paris 1', onClick: () => setShowParis1Page(true) },
+    { label: 'Location photobooth Paris 2', onClick: () => setShowParis2Page(true) },
+    { label: 'Location photobooth Paris 3', onClick: () => setShowParis3Page(true) },
+    { label: 'Location photobooth Paris 4', onClick: () => setShowParis4Page(true) },
+    { label: 'Location photobooth Paris 5', onClick: () => setShowParis5Page(true) },
+    { label: 'Location photobooth Paris 6', onClick: () => setShowParis6Page(true) },
+    { label: 'Location photobooth Paris 7', onClick: () => setShowParis7Page(true) },
+    { label: 'Location photobooth Paris 8', onClick: () => setShowParis8Page(true) },
+    { label: 'Location photobooth Paris 9', onClick: () => setShowParis9Page(true) },
+    { label: 'Location photobooth Paris 10', onClick: () => setShowParis10Page(true) },
+    { label: 'Location photobooth Paris 11', onClick: () => setShowParis11Page(true) },
+    { label: 'Location photobooth Paris 12', onClick: () => setShowParis12Page(true) },
+    { label: 'Location photobooth Paris 13', onClick: () => setShowParis13Page(true) },
+    { label: 'Location photobooth Paris 14', onClick: () => setShowParis14Page(true) },
+    { label: 'Location photobooth Paris 15', onClick: () => setShowParis15Page(true) },
+  ];
 
   if (showQuotePage) {
     return <QuotePage 
@@ -2135,168 +2148,11 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-16 border-t border-gray-100" role="contentinfo">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-4 gap-8 mb-12">
-            <div className="lg:col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <Camera className="w-6 h-6 text-black" />
-                </div>
-                <span className="text-2xl font-bold text-black">BoostPix</span>
-              </div>
-              <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
-                Spécialiste des expériences visuelles premium pour vos événements d'exception. 
-                Photobooths sur mesure, technologie connectée et décors immersifs.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                  <Instagram className="w-5 h-5 text-gray-600" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                  <Facebook className="w-5 h-5 text-gray-600" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                  <Linkedin className="w-5 h-5 text-gray-600" />
-                </a>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-bold text-black mb-6 text-lg">Services</h3>
-              <div className="space-y-3">
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Photobooths sur mesure</a>
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Technologie connectée</a>
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Décors immersifs</a>
-                <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Animation événementielle</a>
-                <button 
-                  onClick={() => setShowSEOPage(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris
-                </button>
-                <button 
-                  onClick={() => setShowParis1Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 1
-                </button>
-                <button 
-                  onClick={() => setShowParis2Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 2
-                </button>
-                <button 
-                  onClick={() => setShowParis3Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 3
-                </button>
-                <button 
-                  onClick={() => setShowParis4Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 4
-                </button>
-                <button 
-                  onClick={() => setShowParis5Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 5
-                </button>
-                <button 
-                  onClick={() => setShowParis6Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 6
-                </button>
-                <button
-                  onClick={() => setShowParis7Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 7
-                </button>
-                <button
-                  onClick={() => setShowParis8Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 8
-                </button>
-                <button
-                  onClick={() => setShowParis9Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 9
-                </button>
-                <button
-                  onClick={() => setShowParis10Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 10
-                </button>
-                <button
-                  onClick={() => setShowParis11Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 11
-                </button>
-                <button
-                  onClick={() => setShowParis12Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 12
-                </button>
-                <button
-                  onClick={() => setShowParis13Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 13
-                </button>
-                <button
-                  onClick={() => setShowParis14Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 14
-                </button>
-                <button
-                  onClick={() => setShowParis15Page(true)}
-                  className="block text-gray-600 hover:text-yellow-500 transition-colors text-left"
-                >
-                  Location photobooth Paris 15
-                </button>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-bold text-black mb-6 text-lg">Contact</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-yellow-500" />
-                  <a href="tel:+33123456789" className="text-gray-600 hover:text-yellow-500 transition-colors">+33 1 23 45 67 89</a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-yellow-500" />
-                  <a href="mailto:contact@boostpix.fr" className="text-gray-600 hover:text-yellow-500 transition-colors">contact@boostpix.fr</a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-yellow-500" />
-                  <span className="text-gray-600">Paris - Lyon - Marseille</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 mb-4 md:mb-0">&copy; 2024 BoostPix. Tous droits réservés.</p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">Mentions légales</a>
-              <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">Politique de confidentialité</a>
-              <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">CGV</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer
+        onSEOPage={() => setShowSEOPage(true)}
+        onPhotoboothDetails={() => setShowPhotoboothDetails(true)}
+        arrondissementLinks={arrondissementLinks}
+      />
     </div>
   );
 }
