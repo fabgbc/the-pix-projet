@@ -25,6 +25,7 @@ import Paris16Page from './components/Paris16Page';
 import Paris17Page from './components/Paris17Page';
 import Paris18Page from './components/Paris18Page';
 import Paris19Page from './components/Paris19Page';
+import Paris20Page from './components/Paris20Page';
 import Footer from './components/Footer';
 import {
   Camera,
@@ -68,6 +69,7 @@ function App() {
   const [showParis17Page, setShowParis17Page] = useState(false);
   const [showParis18Page, setShowParis18Page] = useState(false);
   const [showParis19Page, setShowParis19Page] = useState(false);
+  const [showParis20Page, setShowParis20Page] = useState(false);
   const [previousPage, setPreviousPage] = useState<string>('home');
 
   // Fonction pour remettre le scroll en haut
@@ -104,6 +106,7 @@ function App() {
     showParis17Page,
     showParis18Page,
     showParis19Page,
+    showParis20Page,
   ]);
 
   // Fonction pour gérer le retour depuis la page de devis
@@ -174,6 +177,9 @@ function App() {
       case 'paris19':
         setShowParis19Page(true);
         break;
+      case 'paris20':
+        setShowParis20Page(true);
+        break;
       default:
         // Rester sur la page principale
         break;
@@ -206,6 +212,7 @@ function App() {
     { label: 'Location photobooth Paris 17', onClick: () => setShowParis17Page(true) },
     { label: 'Location photobooth Paris 18', onClick: () => setShowParis18Page(true) },
     { label: 'Location photobooth Paris 19', onClick: () => setShowParis19Page(true) },
+    { label: 'Location photobooth Paris 20', onClick: () => setShowParis20Page(true) },
   ];
 
   if (showQuotePage) {
@@ -1810,6 +1817,104 @@ function App() {
       onParis18Page={() => {
         setShowParis19Page(false);
         setShowParis18Page(true);
+      }}
+    />;
+  }
+
+  if (showParis20Page) {
+    return <Paris20Page
+      onBack={() => setShowParis20Page(false)}
+      onQuoteRequest={() => {
+        setShowParis20Page(false);
+        openQuotePage('paris20');
+      }}
+      onPhotoboothDetails={() => {
+        setShowParis20Page(false);
+        setShowPhotoboothDetails(true);
+      }}
+      onAIAnimations={() => {
+        setShowParis20Page(false);
+        setShowAIAnimations(true);
+      }}
+      onSEOPage={() => {
+        setShowParis20Page(false);
+        setShowSEOPage(true);
+      }}
+      onParis1Page={() => {
+        setShowParis20Page(false);
+        setShowParis1Page(true);
+      }}
+      onParis2Page={() => {
+        setShowParis20Page(false);
+        setShowParis2Page(true);
+      }}
+      onParis3Page={() => {
+        setShowParis20Page(false);
+        setShowParis3Page(true);
+      }}
+      onParis4Page={() => {
+        setShowParis20Page(false);
+        setShowParis4Page(true);
+      }}
+      onParis5Page={() => {
+        setShowParis20Page(false);
+        setShowParis5Page(true);
+      }}
+      onParis6Page={() => {
+        setShowParis20Page(false);
+        setShowParis6Page(true);
+      }}
+      onParis7Page={() => {
+        setShowParis20Page(false);
+        setShowParis7Page(true);
+      }}
+      onParis8Page={() => {
+        setShowParis20Page(false);
+        setShowParis8Page(true);
+      }}
+      onParis9Page={() => {
+        setShowParis20Page(false);
+        setShowParis9Page(true);
+      }}
+      onParis10Page={() => {
+        setShowParis20Page(false);
+        setShowParis10Page(true);
+      }}
+      onParis11Page={() => {
+        setShowParis20Page(false);
+        setShowParis11Page(true);
+      }}
+      onParis12Page={() => {
+        setShowParis20Page(false);
+        setShowParis12Page(true);
+      }}
+      onParis13Page={() => {
+        setShowParis20Page(false);
+        setShowParis13Page(true);
+      }}
+      onParis14Page={() => {
+        setShowParis20Page(false);
+        setShowParis14Page(true);
+      }}
+      onParis15Page={() => {
+        setShowParis20Page(false);
+        setShowParis15Page(true);
+      }}
+      onParis16Page={() => {
+        setShowParis20Page(false);
+        setShowParis16Page(true);
+      }}
+      onParis17Page={() => {
+        setShowParis20Page(false);
+        setShowParis17Page(true);
+      }}
+      onParis18Page={() => {
+        setShowParis20Page(false);
+        setShowParis18Page(true);
+      }}
+      onParis19Page={() => {
+        setShowParis20Page(false);
+        setShowParis19Page(true);
       }}
     />;
   }
