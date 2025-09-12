@@ -12,7 +12,7 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
     <footer className="bg-white py-16 border-t border-gray-100" role="contentinfo">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-4 gap-8 mb-12">
-          <div>
+          <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
                 <Camera className="w-6 h-6 text-black" />
@@ -54,12 +54,6 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
               <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Technologie connectée</a>
               <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Décors immersifs</a>
               <a href="#" className="block text-gray-600 hover:text-yellow-500 transition-colors">Animation événementielle</a>
-            </div>
-          </div>
- 
-          <div>
-            <h3 className="font-bold text-black mb-6 text-lg">Photobooth à Paris</h3>
-            <div className="space-y-3">
               {onSEOPage && (
                 <button
                   onClick={onSEOPage}
