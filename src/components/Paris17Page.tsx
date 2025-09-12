@@ -105,8 +105,8 @@ const Paris17Page: React.FC<Paris17PageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Réservez un photobooth à
-              <span className="text-yellow-400 relative">{' '}Paris 17<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
+              Louer un photobooth dans le
+              <span className="text-yellow-400 relative">{' '}17ème arrondissement de Paris<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
             </h1>
           </div>
         </div>
@@ -116,7 +116,7 @@ const Paris17Page: React.FC<Paris17PageProps> = ({
       <div className="max-w-4xl mx-auto px-6 py-16">
         <article className="prose prose-lg max-w-none">
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-black mb-4">Réservez un photobooth à Paris 17 avec The Pix</h2>
+            <h2 className="text-3xl font-bold text-black mb-4">Louer un photobooth Paris 17eme arrondissement avec The Pix</h2>
             <p className="text-gray-700 mb-4">
               Dans le cœur animé du 17ème arrondissement de Paris, les événements d’entreprise prennent une tournure innovante. Le secret de cette transformation ? Les photobooths.
             </p>

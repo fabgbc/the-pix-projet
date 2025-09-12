@@ -109,8 +109,8 @@ const Paris19Page: React.FC<Paris19PageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Réservez un photobooth à
-              <span className="text-yellow-400 relative"> Paris 19<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
+              Louer un photobooth dans le
+              <span className="text-yellow-400 relative">{' '}19ème arrondissement de Paris<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
             </h1>
           </div>
         </div>
@@ -120,7 +120,7 @@ const Paris19Page: React.FC<Paris19PageProps> = ({
       <div className="max-w-4xl mx-auto px-6 py-16">
         <article className="prose prose-lg max-w-none">
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-black mb-4">Louer un photobooth Paris 19e avec The Pix</h2>
+            <h2 className="text-3xl font-bold text-black mb-4">Louer un photobooth Paris 19eme arrondissement avec The Pix</h2>
             <p className="text-gray-700 mb-4">
               Dans le cadre de la planification d'événements corporatifs, l'intégration d'activités novatrices et engageantes est essentielle pour renforcer la cohésion d'équipe et stimuler la motivation des employés. Louer un photobooth à Paris 19e, notamment avec The Pix, se révèle être une solution créative pour agrémenter vos séminaires et événements d'entreprise.
             </p>

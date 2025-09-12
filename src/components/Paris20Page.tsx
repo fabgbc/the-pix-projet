@@ -111,8 +111,8 @@ const Paris20Page: React.FC<Paris20PageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Réservez un photobooth à
-              <span className="text-yellow-400 relative"> Paris 20<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
+              Louer un photobooth dans le
+              <span className="text-yellow-400 relative">{' '}20ème arrondissement de Paris<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
             </h1>
           </div>
         </div>
@@ -122,7 +122,7 @@ const Paris20Page: React.FC<Paris20PageProps> = ({
       <div className="max-w-4xl mx-auto px-6 py-16">
         <article className="prose prose-lg max-w-none">
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-black mb-4">Louer un photobooth Paris 20e avec The Pix</h2>
+            <h2 className="text-3xl font-bold text-black mb-4">Louer un photobooth Paris 20eme arrondissement avec The Pix</h2>
             <p className="text-gray-700 mb-4">
               Organiser un séminaire d'entreprise dans le dynamique 20e arrondissement de Paris peut s’avérer être un défi stimulant.
               Le quartier, connu pour ses contrastes culturels allant des vivants quartiers de Belleville au calme du cimetière du Père Lachaise,

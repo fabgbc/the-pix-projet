@@ -107,8 +107,8 @@ const Paris18Page: React.FC<Paris18PageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Réservez un photobooth à
-              <span className="text-yellow-400 relative"> Paris 18<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
+              Louer un photobooth dans le
+              <span className="text-yellow-400 relative">{' '}18ème arrondissement de Paris<div className="absolute -bottom-2 left-0 w-full h-3 bg-yellow-400 -z-10"></div></span>
             </h1>
           </div>
         </div>
@@ -118,7 +118,7 @@ const Paris18Page: React.FC<Paris18PageProps> = ({
       <div className="max-w-4xl mx-auto px-6 py-16">
         <article className="prose prose-lg max-w-none">
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-black mb-4">Réservez un photobooth dans le 18ème arrondissement de Paris avec The Pix</h2>
+            <h2 className="text-3xl font-bold text-black mb-4">Louer un photobooth Paris 18eme arrondissement avec The Pix</h2>
             <p className="text-gray-700 mb-4">
               Au cœur vibrant de Paris, le 18ème arrondissement incarne à la fois la culture et l’histoire, symbolisées par des lieux emblématiques tels que Montmartre et le Moulin Rouge. Ce riche décor artistique et divertissant offre un cadre unique pour les événements d'entreprise.
             </p>
