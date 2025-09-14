@@ -26,7 +26,7 @@ interface PhotographerAIPageProps {
   onPhotoboothDetails?: () => void;
   onAIAnimations?: () => void;
   onSEOPage?: () => void;
-  arrondissementLinks: { label: string; path: string }[];
+  arrondissementLinks: { label: string; onClick: () => void }[];
 }
 
 const PhotographerAIPage: React.FC<PhotographerAIPageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onSEOPage, arrondissementLinks }) => {
