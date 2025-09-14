@@ -20,7 +20,7 @@ import Footer from './Footer';
 interface DemoRequestPageProps {
   onBack: () => void;
   onSEOPage?: () => void;
-  arrondissementLinks: { label: string; onClick: () => void }[];
+  arrondissementLinks: { label: string; path: string }[];
   onQuoteRequest?: () => void;
 }
 
