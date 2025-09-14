@@ -17,7 +17,7 @@ import Footer from './Footer';
 interface QuotePageProps {
   onBack: () => void;
   onSEOPage?: () => void;
-  arrondissementLinks: { label: string; path: string }[];
+  arrondissementLinks: { label: string; onClick: () => void }[];
   }
 
 const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, arrondissementLinks }) => {

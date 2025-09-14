@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Camera, Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
 
 interface FooterProps {
   onSEOPage?: () => void;
   onPhotoboothDetails?: () => void;
-  arrondissementLinks: { label: string; path: string }[];
+  arrondissementLinks: { label: string; onClick: () => void }[];
 }
 
 const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondissementLinks }) => {
@@ -74,13 +73,13 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
               )}
               <div className="space-y-2">
                 {firstHalf.map((link, idx) => (
-                  <Link
+                  <button
                     key={idx}
-                    to={link.path}
-                    className="block text-gray-600 hover:text-yellow-500 transition-colors"
+                    onClick={link.onClick}
+                    className="text-gray-600 hover:text-yellow-500 transition-colors text-left"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 ))}
               </div>
             </div>
@@ -91,13 +90,13 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
             <div className="space-y-3">
               <div className="space-y-2">
                 {secondHalf.map((link, idx) => (
-                  <Link
+                  <button
                     key={idx}
-                    to={link.path}
-                    className="block text-gray-600 hover:text-yellow-500 transition-colors"
+                    onClick={link.onClick}
+                    className="text-gray-600 hover:text-yellow-500 transition-colors text-left"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 ))}
               </div>
             </div>
