@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 interface ArrondissementLink {
   label: string;
-  onClick: () => void;
+  path: string;
 }
 
 interface ArrondissementPageLayoutProps {
@@ -16,6 +16,7 @@ interface ArrondissementPageLayoutProps {
   onAIAnimations?: () => void;
   onSEOPage?: () => void;
   arrondissementLinks: ArrondissementLink[];
+  navigate: (path: string) => void;
   children: React.ReactNode;
 }
 
@@ -27,6 +28,7 @@ const ArrondissementPageLayout: React.FC<ArrondissementPageLayoutProps> = ({
   onAIAnimations,
   onSEOPage,
   arrondissementLinks,
+  navigate,
   children,
 }) => {
   const arrondissementLabel = arrondissement === 1 ? '1er' : `${arrondissement}ème`;
@@ -103,6 +105,7 @@ const ArrondissementPageLayout: React.FC<ArrondissementPageLayoutProps> = ({
         onSEOPage={onSEOPage}
         onPhotoboothDetails={onPhotoboothDetails}
         arrondissementLinks={arrondissementLinks}
+        navigate={navigate}
       />
     </div>
   );

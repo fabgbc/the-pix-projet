@@ -4,10 +4,11 @@ import { Camera, Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from 'luci
 interface FooterProps {
   onSEOPage?: () => void;
   onPhotoboothDetails?: () => void;
-  arrondissementLinks: { label: string; onClick: () => void }[];
+  arrondissementLinks: { label: string; path: string }[];
+  navigate?: (path: string) => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondissementLinks }) => {
+const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondissementLinks, navigate }) => {
   const firstHalf = arrondissementLinks.slice(0, 10);
   const secondHalf = arrondissementLinks.slice(10);
 
@@ -73,13 +74,21 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
               )}
               <div className="space-y-2">
                 {firstHalf.map((link, idx) => (
-                  <button
+                  <a
                     key={idx}
-                    onClick={link.onClick}
-                    className="text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                    href={link.path}
+                    onClick={
+                      navigate
+                        ? e => {
+                            e.preventDefault();
+                            navigate(link.path);
+                          }
+                        : undefined
+                    }
+                    className="block text-gray-600 hover:text-yellow-500 transition-colors"
                   >
                     {link.label}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
@@ -90,13 +99,21 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
             <div className="space-y-3">
               <div className="space-y-2">
                 {secondHalf.map((link, idx) => (
-                  <button
+                  <a
                     key={idx}
-                    onClick={link.onClick}
-                    className="text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                    href={link.path}
+                    onClick={
+                      navigate
+                        ? e => {
+                            e.preventDefault();
+                            navigate(link.path);
+                          }
+                        : undefined
+                    }
+                    className="block text-gray-600 hover:text-yellow-500 transition-colors"
                   >
                     {link.label}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
