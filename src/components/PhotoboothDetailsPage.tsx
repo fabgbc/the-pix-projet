@@ -20,7 +20,7 @@ interface PhotoboothDetailsPageProps {
   onBack: () => void;
   onAIAnimations?: () => void;
   onQuoteRequest?: () => void;
-  arrondissementLinks: { label: string; onClick: () => void }[];
+  arrondissementLinks: { label: string; path: string }[];
 }
 
 const PhotoboothDetailsPage: React.FC<PhotoboothDetailsPageProps> = ({ onBack, onAIAnimations, onQuoteRequest, arrondissementLinks}) => {

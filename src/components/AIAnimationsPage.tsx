@@ -28,7 +28,7 @@ interface AIAnimationsPageProps {
   onDemoRequest: () => void;
   onPhotoboothDetails?: () => void;
   onSEOPage?: () => void;
-  arrondissementLinks: { label: string; onClick: () => void }[];
+  arrondissementLinks: { label: string; path: string }[];
   onQuoteRequest?: () => void;
 }
 
