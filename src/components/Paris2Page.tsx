@@ -5,7 +5,8 @@ import {
   Heart,
   Check,
   Star,
-  Award
+  Award,
+  Zap
 } from 'lucide-react';
 import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
