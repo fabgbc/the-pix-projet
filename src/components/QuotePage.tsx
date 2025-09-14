@@ -17,28 +17,10 @@ import Footer from './Footer';
 interface QuotePageProps {
   onBack: () => void;
   onSEOPage?: () => void;
-  onParis1Page?: () => void;
-  onParis2Page?: () => void;
-  onParis3Page?: () => void;
-  onParis4Page?: () => void;
-  onParis5Page?: () => void;
-  onParis6Page?: () => void;
-  onParis7Page?: () => void;
-  onParis8Page?: () => void;
-  onParis9Page?: () => void;
-    onParis10Page?: () => void;
-    onParis11Page?: () => void;
-    onParis12Page?: () => void;
-    onParis13Page?: () => void;
-    onParis14Page?: () => void;
-    onParis15Page?: () => void;
-    onParis16Page?: () => void;
-    onParis17Page?: () => void;
-    onParis18Page?: () => void;
-    onParis19Page?: () => void;
+  arrondissementLinks: { label: string; onClick: () => void }[];
   }
 
-const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onParis9Page, onParis10Page, onParis11Page, onParis12Page, onParis13Page, onParis14Page, onParis15Page, onParis16Page, onParis17Page, onParis18Page, onParis19Page }) => {
+const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, arrondissementLinks }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     clientType: '', // 'enterprise' or 'wedding'
@@ -554,27 +536,7 @@ const QuotePage: React.FC<QuotePageProps> = ({ onBack, onSEOPage, onParis1Page, 
       {/* Footer */}
       <Footer
         onSEOPage={onSEOPage}
-        arrondissementLinks={[
-          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
-          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
-          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
-          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
-          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
-          { label: 'Location photobooth Paris 10', onClick: onParis10Page },
-          { label: 'Location photobooth Paris 11', onClick: onParis11Page },
-          { label: 'Location photobooth Paris 12', onClick: onParis12Page },
-          { label: 'Location photobooth Paris 13', onClick: onParis13Page },
-          { label: 'Location photobooth Paris 14', onClick: onParis14Page },
-          { label: 'Location photobooth Paris 15', onClick: onParis15Page },
-          { label: 'Location photobooth Paris 16', onClick: onParis16Page },
-          { label: 'Location photobooth Paris 17', onClick: onParis17Page },
-          { label: 'Location photobooth Paris 18', onClick: onParis18Page },
-          { label: 'Location photobooth Paris 19', onClick: onParis19Page },
-        ]}
+        arrondissementLinks={arrondissementLinks}
       />
     </div>
   );

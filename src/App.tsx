@@ -192,28 +192,57 @@ function App() {
     setShowQuotePage(true);
   };
 
-  const arrondissementLinks = [
-    { label: 'Location photobooth Paris 1', onClick: () => setShowParis1Page(true) },
-    { label: 'Location photobooth Paris 2', onClick: () => setShowParis2Page(true) },
-    { label: 'Location photobooth Paris 3', onClick: () => setShowParis3Page(true) },
-    { label: 'Location photobooth Paris 4', onClick: () => setShowParis4Page(true) },
-    { label: 'Location photobooth Paris 5', onClick: () => setShowParis5Page(true) },
-    { label: 'Location photobooth Paris 6', onClick: () => setShowParis6Page(true) },
-    { label: 'Location photobooth Paris 7', onClick: () => setShowParis7Page(true) },
-    { label: 'Location photobooth Paris 8', onClick: () => setShowParis8Page(true) },
-    { label: 'Location photobooth Paris 9', onClick: () => setShowParis9Page(true) },
-    { label: 'Location photobooth Paris 10', onClick: () => setShowParis10Page(true) },
-    { label: 'Location photobooth Paris 11', onClick: () => setShowParis11Page(true) },
-    { label: 'Location photobooth Paris 12', onClick: () => setShowParis12Page(true) },
-    { label: 'Location photobooth Paris 13', onClick: () => setShowParis13Page(true) },
-    { label: 'Location photobooth Paris 14', onClick: () => setShowParis14Page(true) },
-    { label: 'Location photobooth Paris 15', onClick: () => setShowParis15Page(true) },
-    { label: 'Location photobooth Paris 16', onClick: () => setShowParis16Page(true) },
-    { label: 'Location photobooth Paris 17', onClick: () => setShowParis17Page(true) },
-    { label: 'Location photobooth Paris 18', onClick: () => setShowParis18Page(true) },
-    { label: 'Location photobooth Paris 19', onClick: () => setShowParis19Page(true) },
-    { label: 'Location photobooth Paris 20', onClick: () => setShowParis20Page(true) },
-  ];
+  const goToParisPage = (n: number) => {
+    setShowQuotePage(false);
+    setShowPhotoboothDetails(false);
+    setShowAIAnimations(false);
+    setShowDemoRequest(false);
+    setShowSEOPage(false);
+    setShowPhotographerAI(false);
+    setShowParis1Page(false);
+    setShowParis2Page(false);
+    setShowParis3Page(false);
+    setShowParis4Page(false);
+    setShowParis5Page(false);
+    setShowParis6Page(false);
+    setShowParis7Page(false);
+    setShowParis8Page(false);
+    setShowParis9Page(false);
+    setShowParis10Page(false);
+    setShowParis11Page(false);
+    setShowParis12Page(false);
+    setShowParis13Page(false);
+    setShowParis14Page(false);
+    setShowParis15Page(false);
+    setShowParis16Page(false);
+    setShowParis17Page(false);
+    setShowParis18Page(false);
+    setShowParis19Page(false);
+    setShowParis20Page(false);
+    switch (n) {
+      case 1: setShowParis1Page(true); break;
+      case 2: setShowParis2Page(true); break;
+      case 3: setShowParis3Page(true); break;
+      case 4: setShowParis4Page(true); break;
+      case 5: setShowParis5Page(true); break;
+      case 6: setShowParis6Page(true); break;
+      case 7: setShowParis7Page(true); break;
+      case 8: setShowParis8Page(true); break;
+      case 9: setShowParis9Page(true); break;
+      case 10: setShowParis10Page(true); break;
+      case 11: setShowParis11Page(true); break;
+      case 12: setShowParis12Page(true); break;
+      case 13: setShowParis13Page(true); break;
+      case 14: setShowParis14Page(true); break;
+      case 15: setShowParis15Page(true); break;
+      case 16: setShowParis16Page(true); break;
+      case 17: setShowParis17Page(true); break;
+      case 18: setShowParis18Page(true); break;
+      case 19: setShowParis19Page(true); break;
+      case 20: setShowParis20Page(true); break;
+    }
+  };
+  const arrondissementLinks = Array.from({ length: 20 }, (_, i) => ({ label: `Location photobooth Paris ${i + 1}`, onClick: () => goToParisPage(i + 1) }));
 
   if (showQuotePage) {
     return <QuotePage 
@@ -221,83 +250,8 @@ function App() {
       onSEOPage={() => {
         setShowQuotePage(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowQuotePage(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowQuotePage(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowQuotePage(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowQuotePage(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowQuotePage(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowQuotePage(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowQuotePage(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowQuotePage(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowQuotePage(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowQuotePage(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowQuotePage(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowQuotePage(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowQuotePage(false);
-        setShowParis13Page(true);
-      }}
-      onParis14Page={() => {
-        setShowQuotePage(false);
-        setShowParis14Page(true);
-      }}
-      onParis15Page={() => {
-        setShowQuotePage(false);
-        setShowParis15Page(true);
-      }}
-      onParis16Page={() => {
-        setShowQuotePage(false);
-        setShowParis16Page(true);
-      }}
-      onParis17Page={() => {
-        setShowQuotePage(false);
-        setShowParis17Page(true);
-      }}
-      onParis18Page={() => {
-        setShowQuotePage(false);
-        setShowParis18Page(true);
-      }}
-      onParis19Page={() => {
-        setShowQuotePage(false);
-        setShowParis19Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -312,46 +266,11 @@ function App() {
         setShowPhotoboothDetails(false);
         setShowSEOPage(true);
       }}
-      onParis1Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowPhotoboothDetails(false);
-        setShowParis9Page(true);
-      }}
       onQuoteRequest={() => {
         setShowPhotoboothDetails(false);
         openQuotePage('photoboothDetails');
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -370,46 +289,11 @@ function App() {
         setShowAIAnimations(false);
         setShowSEOPage(true);
       }}
-      onParis1Page={() => {
-        setShowAIAnimations(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowAIAnimations(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowAIAnimations(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowAIAnimations(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowAIAnimations(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowAIAnimations(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowAIAnimations(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowAIAnimations(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowAIAnimations(false);
-        setShowParis9Page(true);
-      }}
       onQuoteRequest={() => {
         setShowAIAnimations(false);
         openQuotePage('aiAnimations');
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -420,46 +304,11 @@ function App() {
         setShowDemoRequest(false);
         setShowSEOPage(true);
       }}
-      onParis1Page={() => {
-        setShowDemoRequest(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowDemoRequest(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowDemoRequest(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowDemoRequest(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowDemoRequest(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowDemoRequest(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowDemoRequest(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowDemoRequest(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowDemoRequest(false);
-        setShowParis9Page(true);
-      }}
       onQuoteRequest={() => {
         setShowDemoRequest(false);
         openQuotePage('demoRequest');
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -477,43 +326,8 @@ function App() {
       onAIAnimations={() => {
         setShowSEOPage(false);
         setShowAIAnimations(true);
-      }}
-      onParis1Page={() => {
-        setShowSEOPage(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowSEOPage(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowSEOPage(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowSEOPage(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowSEOPage(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowSEOPage(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowSEOPage(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowSEOPage(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowSEOPage(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -535,43 +349,8 @@ function App() {
       onSEOPage={() => {
         setShowPhotographerAI(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowPhotographerAI(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -593,39 +372,8 @@ function App() {
       onSEOPage={() => {
         setShowParis1Page(false);
         setShowSEOPage(true);
-      }}
-      onParis2Page={() => {
-        setShowParis1Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis1Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis1Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis1Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis1Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis1Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis1Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis1Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -647,39 +395,8 @@ function App() {
       onSEOPage={() => {
         setShowParis2Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis2Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis2Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis2Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis2Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis2Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis2Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis2Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis2Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -701,39 +418,8 @@ function App() {
       onSEOPage={() => {
         setShowParis3Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis3Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis3Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis3Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis3Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis3Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis3Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis3Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis3Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -755,39 +441,8 @@ function App() {
       onSEOPage={() => {
         setShowParis4Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis4Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis4Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis4Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis4Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis4Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis4Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis4Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis4Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -809,39 +464,8 @@ function App() {
       onSEOPage={() => {
         setShowParis5Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis5Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis5Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis5Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis5Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis5Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis5Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis5Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis5Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -863,39 +487,8 @@ function App() {
       onSEOPage={() => {
         setShowParis6Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis6Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis6Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis6Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis6Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis6Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis6Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis6Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis6Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -917,39 +510,8 @@ function App() {
       onSEOPage={() => {
         setShowParis7Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis7Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis7Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis7Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis7Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis7Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis7Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis7Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis7Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -971,39 +533,8 @@ function App() {
       onSEOPage={() => {
         setShowParis8Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis8Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis8Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis8Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis8Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis8Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis8Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis8Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis8Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1025,39 +556,8 @@ function App() {
       onSEOPage={() => {
         setShowParis9Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis9Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis9Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis9Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis9Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis9Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis9Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis9Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis9Page(false);
-        setShowParis8Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1079,43 +579,8 @@ function App() {
       onSEOPage={() => {
         setShowParis10Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis10Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis10Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis10Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis10Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis10Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis10Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis10Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis10Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis10Page(false);
-        setShowParis9Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1137,47 +602,8 @@ function App() {
       onSEOPage={() => {
         setShowParis11Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis11Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis11Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis11Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis11Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis11Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis11Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis11Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis11Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis11Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis11Page(false);
-        setShowParis10Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1199,51 +625,8 @@ function App() {
       onSEOPage={() => {
         setShowParis12Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis12Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis12Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis12Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis12Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis12Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis12Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis12Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis12Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis12Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis12Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis12Page(false);
-        setShowParis11Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1265,55 +648,8 @@ function App() {
       onSEOPage={() => {
         setShowParis13Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis13Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis13Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis13Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis13Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis13Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis13Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis13Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis13Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis13Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis13Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis13Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis13Page(false);
-        setShowParis12Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1335,59 +671,8 @@ function App() {
       onSEOPage={() => {
         setShowParis14Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis14Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis14Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis14Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis14Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis14Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis14Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis14Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis14Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis14Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis14Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis14Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis14Page(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowParis14Page(false);
-        setShowParis13Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1409,63 +694,8 @@ function App() {
       onSEOPage={() => {
         setShowParis15Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis15Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis15Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis15Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis15Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis15Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis15Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis15Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis15Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis15Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis15Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis15Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis15Page(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowParis15Page(false);
-        setShowParis13Page(true);
-      }}
-      onParis14Page={() => {
-        setShowParis15Page(false);
-        setShowParis14Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1487,67 +717,8 @@ function App() {
       onSEOPage={() => {
         setShowParis16Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis16Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis16Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis16Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis16Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis16Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis16Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis16Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis16Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis16Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis16Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis16Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis16Page(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowParis16Page(false);
-        setShowParis13Page(true);
-      }}
-      onParis14Page={() => {
-        setShowParis16Page(false);
-        setShowParis14Page(true);
-      }}
-      onParis15Page={() => {
-        setShowParis16Page(false);
-        setShowParis15Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1569,71 +740,8 @@ function App() {
       onSEOPage={() => {
         setShowParis17Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis17Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis17Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis17Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis17Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis17Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis17Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis17Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis17Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis17Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis17Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis17Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis17Page(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowParis17Page(false);
-        setShowParis13Page(true);
-      }}
-      onParis14Page={() => {
-        setShowParis17Page(false);
-        setShowParis14Page(true);
-      }}
-      onParis15Page={() => {
-        setShowParis17Page(false);
-        setShowParis15Page(true);
-      }}
-      onParis16Page={() => {
-        setShowParis17Page(false);
-        setShowParis16Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1655,75 +763,8 @@ function App() {
       onSEOPage={() => {
         setShowParis18Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis18Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis18Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis18Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis18Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis18Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis18Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis18Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis18Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis18Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis18Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis18Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis18Page(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowParis18Page(false);
-        setShowParis13Page(true);
-      }}
-      onParis14Page={() => {
-        setShowParis18Page(false);
-        setShowParis14Page(true);
-      }}
-      onParis15Page={() => {
-        setShowParis18Page(false);
-        setShowParis15Page(true);
-      }}
-      onParis16Page={() => {
-        setShowParis18Page(false);
-        setShowParis16Page(true);
-      }}
-      onParis17Page={() => {
-        setShowParis18Page(false);
-        setShowParis17Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1745,79 +786,8 @@ function App() {
       onSEOPage={() => {
         setShowParis19Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis19Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis19Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis19Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis19Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis19Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis19Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis19Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis19Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis19Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis19Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis19Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis19Page(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowParis19Page(false);
-        setShowParis13Page(true);
-      }}
-      onParis14Page={() => {
-        setShowParis19Page(false);
-        setShowParis14Page(true);
-      }}
-      onParis15Page={() => {
-        setShowParis19Page(false);
-        setShowParis15Page(true);
-      }}
-      onParis16Page={() => {
-        setShowParis19Page(false);
-        setShowParis16Page(true);
-      }}
-      onParis17Page={() => {
-        setShowParis19Page(false);
-        setShowParis17Page(true);
-      }}
-      onParis18Page={() => {
-        setShowParis19Page(false);
-        setShowParis18Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 
@@ -1839,83 +809,8 @@ function App() {
       onSEOPage={() => {
         setShowParis20Page(false);
         setShowSEOPage(true);
-      }}
-      onParis1Page={() => {
-        setShowParis20Page(false);
-        setShowParis1Page(true);
-      }}
-      onParis2Page={() => {
-        setShowParis20Page(false);
-        setShowParis2Page(true);
-      }}
-      onParis3Page={() => {
-        setShowParis20Page(false);
-        setShowParis3Page(true);
-      }}
-      onParis4Page={() => {
-        setShowParis20Page(false);
-        setShowParis4Page(true);
-      }}
-      onParis5Page={() => {
-        setShowParis20Page(false);
-        setShowParis5Page(true);
-      }}
-      onParis6Page={() => {
-        setShowParis20Page(false);
-        setShowParis6Page(true);
-      }}
-      onParis7Page={() => {
-        setShowParis20Page(false);
-        setShowParis7Page(true);
-      }}
-      onParis8Page={() => {
-        setShowParis20Page(false);
-        setShowParis8Page(true);
-      }}
-      onParis9Page={() => {
-        setShowParis20Page(false);
-        setShowParis9Page(true);
-      }}
-      onParis10Page={() => {
-        setShowParis20Page(false);
-        setShowParis10Page(true);
-      }}
-      onParis11Page={() => {
-        setShowParis20Page(false);
-        setShowParis11Page(true);
-      }}
-      onParis12Page={() => {
-        setShowParis20Page(false);
-        setShowParis12Page(true);
-      }}
-      onParis13Page={() => {
-        setShowParis20Page(false);
-        setShowParis13Page(true);
-      }}
-      onParis14Page={() => {
-        setShowParis20Page(false);
-        setShowParis14Page(true);
-      }}
-      onParis15Page={() => {
-        setShowParis20Page(false);
-        setShowParis15Page(true);
-      }}
-      onParis16Page={() => {
-        setShowParis20Page(false);
-        setShowParis16Page(true);
-      }}
-      onParis17Page={() => {
-        setShowParis20Page(false);
-        setShowParis17Page(true);
-      }}
-      onParis18Page={() => {
-        setShowParis20Page(false);
-        setShowParis18Page(true);
-      }}
-      onParis19Page={() => {
-        setShowParis20Page(false);
-        setShowParis19Page(true);
-      }}
+    }}
+      arrondissementLinks={arrondissementLinks}
     />;
   }
 

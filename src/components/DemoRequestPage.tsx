@@ -20,19 +20,11 @@ import Footer from './Footer';
 interface DemoRequestPageProps {
   onBack: () => void;
   onSEOPage?: () => void;
-  onParis1Page?: () => void;
-  onParis2Page?: () => void;
-  onParis3Page?: () => void;
-  onParis4Page?: () => void;
-  onParis5Page?: () => void;
-  onParis6Page?: () => void;
-  onParis7Page?: () => void;
-  onParis8Page?: () => void;
+  arrondissementLinks: { label: string; onClick: () => void }[];
   onQuoteRequest?: () => void;
-  onParis9Page?: () => void;
 }
 
-const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, onParis1Page, onParis2Page, onParis3Page, onParis4Page, onParis5Page, onParis6Page, onParis7Page, onParis8Page, onQuoteRequest, onParis9Page }) => {
+const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, onQuoteRequest , arrondissementLinks }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     demoType: '', // 'live' or 'video'
@@ -467,17 +459,7 @@ const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, on
       {/* Footer */}
       <Footer
         onSEOPage={onSEOPage}
-        arrondissementLinks={[
-          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
-          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
-          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
-          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
-          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onParis8Page },
-          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
-        ]}
+        arrondissementLinks={arrondissementLinks}
       />
     </div>
   );

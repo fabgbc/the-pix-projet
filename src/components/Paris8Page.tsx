@@ -21,14 +21,7 @@ interface Paris8PageProps {
   onPhotoboothDetails?: () => void;
   onAIAnimations?: () => void;
   onSEOPage?: () => void;
-  onParis1Page?: () => void;
-  onParis2Page?: () => void;
-  onParis3Page?: () => void;
-  onParis4Page?: () => void;
-  onParis5Page?: () => void;
-  onParis6Page?: () => void;
-  onParis7Page?: () => void;
-  onParis9Page?: () => void;
+  arrondissementLinks: { label: string; onClick: () => void }[];
 }
 
 const Paris8Page: React.FC<Paris8PageProps> = ({
@@ -36,16 +29,7 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
   onQuoteRequest,
   onPhotoboothDetails,
   onAIAnimations,
-  onSEOPage,
-  onParis1Page,
-  onParis2Page,
-  onParis3Page,
-  onParis4Page,
-  onParis5Page,
-  onParis6Page,
-  onParis7Page,
-  onParis9Page,
-}) => {
+  onSEOPage, arrondissementLinks }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -339,17 +323,7 @@ const Paris8Page: React.FC<Paris8PageProps> = ({
       <Footer
         onSEOPage={onSEOPage}
         onPhotoboothDetails={onPhotoboothDetails}
-        arrondissementLinks={[
-          { label: 'Location photobooth Paris 1', onClick: onParis1Page },
-          { label: 'Location photobooth Paris 2', onClick: onParis2Page },
-          { label: 'Location photobooth Paris 3', onClick: onParis3Page },
-          { label: 'Location photobooth Paris 4', onClick: onParis4Page },
-          { label: 'Location photobooth Paris 5', onClick: onParis5Page },
-          { label: 'Location photobooth Paris 6', onClick: onParis6Page },
-          { label: 'Location photobooth Paris 7', onClick: onParis7Page },
-          { label: 'Location photobooth Paris 8', onClick: onBack },
-          { label: 'Location photobooth Paris 9', onClick: onParis9Page },
-        ]}
+        arrondissementLinks={arrondissementLinks}
       />
     </div>
   );
