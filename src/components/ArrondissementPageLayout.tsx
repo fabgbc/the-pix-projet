@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 interface ArrondissementLink {
   label: string;
-  onClick: () => void;
+  path: string;
 }
 
 interface ArrondissementPageLayoutProps {
