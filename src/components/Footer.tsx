@@ -8,10 +8,13 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondissementLinks }) => {
+  const firstHalf = arrondissementLinks.slice(0, 10);
+  const secondHalf = arrondissementLinks.slice(10);
+
   return (
     <footer className="bg-white py-16 border-t border-gray-100" role="contentinfo">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid lg:grid-cols-5 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
@@ -68,8 +71,25 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
                   Location photobooth Paris
                 </button>
               )}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                {arrondissementLinks.map((link, idx) => (
+              <div className="space-y-2">
+                {firstHalf.map((link, idx) => (
+                  <button
+                    key={idx}
+                    onClick={link.onClick}
+                    className="text-gray-600 hover:text-yellow-500 transition-colors text-left"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-black mb-6 text-lg">Photobooth à Paris</h3>
+            <div className="space-y-3">
+              <div className="space-y-2">
+                {secondHalf.map((link, idx) => (
                   <button
                     key={idx}
                     onClick={link.onClick}
