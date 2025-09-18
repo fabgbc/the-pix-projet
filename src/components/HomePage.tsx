@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Camera,
   Sparkles,
@@ -6,15 +6,17 @@ import {
   Heart,
   Zap,
   Star,
+  Menu,
+  X,
   ArrowRight,
   Check,
 } from 'lucide-react';
 import Footer from './Footer';
 import { useRouter } from '../router';
 import { ARRONDISSEMENTS } from '../data/arrondissements';
-import Header from './Header';
 
 const HomePage: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { navigate } = useRouter();
 
   const arrondissementLinks = useMemo(
@@ -27,12 +29,124 @@ const HomePage: React.FC = () => {
   );
 
   const handleNavigate = (path: string) => {
+    setIsMenuOpen(false);
     navigate(path);
   };
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100" role="banner">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
+                <Camera className="w-6 h-6 text-black" />
+              </div>
+              <span className="text-2xl font-bold text-black">BoostPix</span>
+            </div>
+
+            <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Navigation principale">
+              <button
+                onClick={() => handleNavigate('/')}
+                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
+              >
+                Accueil
+              </button>
+              <button
+                onClick={() => handleNavigate('/services')}
+                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => handleNavigate('/location-photobooth-paris')}
+                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
+              >
+                Photobooth sur mesure
+              </button>
+              <button
+                onClick={() => handleNavigate('/photobooth-evenement-paris')}
+                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
+              >
+                Événements Privés
+              </button>
+              <button
+                onClick={() => handleNavigate('/animations-photobooth-ia')}
+                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
+              >
+                Animations IA
+              </button>
+              <button
+                onClick={() => handleNavigate('/galerie-photobooth-paris')}
+                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
+              >
+                Galerie
+              </button>
+              <button
+                onClick={() => handleNavigate('/devis-photobooth-gratuit')}
+                className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
+              >
+                Devis Gratuit
+              </button>
+            </nav>
+
+            <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Ouvrir le menu">
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="lg:hidden mt-4 pb-4 border-t border-gray-100">
+              <div className="flex flex-col space-y-4 pt-4">
+                <button
+                  onClick={() => handleNavigate('/')}
+                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
+                >
+                  Accueil
+                </button>
+                <button
+                  onClick={() => handleNavigate('/services')}
+                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
+                >
+                  Services
+                </button>
+                <button
+                  onClick={() => handleNavigate('/location-photobooth-paris')}
+                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
+                >
+                  Photobooth sur mesure
+                </button>
+                <button
+                  onClick={() => handleNavigate('/photobooth-evenement-paris')}
+                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
+                >
+                  Événements Privés
+                </button>
+                <button
+                  onClick={() => handleNavigate('/animations-photobooth-ia')}
+                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
+                >
+                  Animations IA
+                </button>
+                <button
+                  onClick={() => handleNavigate('/galerie-photobooth-paris')}
+                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
+                >
+                  Galerie
+                </button>
+                <button
+                  onClick={() => handleNavigate('/devis-photobooth-gratuit')}
+                  className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold text-center"
+                >
+                  Devis Gratuit
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
 
       {/* Hero Section */}
       <section className="relative h-screen overflow-hidden pt-20" role="main">

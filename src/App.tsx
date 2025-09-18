@@ -43,6 +43,7 @@ const RouteWrapper: React.FC<RouteWrapperProps> = ({ children, ...meta }) => {
 };
 
 interface ArrondissementComponentProps {
+  onBack: () => void;
   onQuoteRequest: () => void;
   onPhotoboothDetails: () => void;
   onAIAnimations: () => void;
@@ -120,6 +121,7 @@ const App: React.FC = () => {
         url={buildUrl(`/location-photobooth-paris-${number}`)}
       >
         <Component
+          onBack={goHome}
           onQuoteRequest={goQuote}
           onPhotoboothDetails={goPhotobooth}
           onAIAnimations={goAI}
@@ -159,6 +161,7 @@ const App: React.FC = () => {
           url={buildUrl('/services')}
         >
           <ServicesPage
+            onBack={goHome}
             onPhotoboothDetails={goPhotobooth}
             onPrivateEvents={goPrivateEvents}
             onAIAnimations={goAI}
@@ -177,6 +180,7 @@ const App: React.FC = () => {
           url={buildUrl('/location-photobooth-paris')}
         >
           <PhotoboothDetailsPage
+            onBack={goHome}
             onAIAnimations={goAI}
             onQuoteRequest={goQuote}
             arrondissementLinks={arrondissementLinks}
@@ -192,6 +196,7 @@ const App: React.FC = () => {
           url={buildUrl('/photobooth-evenement-paris')}
         >
           <PrivateEventsPage
+            onBack={goHome}
             onPhotoboothDetails={goPhotobooth}
             onAIAnimations={goAI}
             onQuoteRequest={goQuote}
@@ -209,6 +214,7 @@ const App: React.FC = () => {
           url={buildUrl('/animations-photobooth-ia')}
         >
           <AIAnimationsPage
+            onBack={goHome}
             onDemoRequest={goDemo}
             onPhotoboothDetails={goPhotobooth}
             onSEOPage={goSEO}
@@ -226,6 +232,7 @@ const App: React.FC = () => {
           url={buildUrl('/galerie-photobooth-paris')}
         >
           <GalleryPage
+            onBack={goHome}
             onPhotoboothDetails={goPhotobooth}
             onQuoteRequest={goQuote}
             onSEOPage={goSEO}
@@ -241,7 +248,7 @@ const App: React.FC = () => {
           description="Obtenez un devis photobooth personnalisé pour votre événement à Paris. BoostPix vous accompagne avec des solutions sur mesure."
           url={buildUrl('/devis-photobooth-gratuit')}
         >
-          <QuotePage onSEOPage={goSEO} arrondissementLinks={arrondissementLinks} />
+          <QuotePage onBack={goHome} onSEOPage={goSEO} arrondissementLinks={arrondissementLinks} />
         </RouteWrapper>
       );
     }
@@ -253,6 +260,7 @@ const App: React.FC = () => {
           url={buildUrl('/location-de-photobooth-a-paris-avec-the-pix')}
         >
           <SEOPage
+            onBack={goHome}
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}
             onAIAnimations={goAI}
@@ -269,6 +277,7 @@ const App: React.FC = () => {
           url={buildUrl('/photographe-connecte-ia')}
         >
           <PhotographerAIPage
+            onBack={goHome}
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}
             onAIAnimations={goAI}
@@ -286,6 +295,7 @@ const App: React.FC = () => {
           url={buildUrl('/demande-demo-photobooth')}
         >
           <DemoRequestPage
+            onBack={goHome}
             onSEOPage={goSEO}
             onQuoteRequest={goQuote}
             arrondissementLinks={arrondissementLinks}

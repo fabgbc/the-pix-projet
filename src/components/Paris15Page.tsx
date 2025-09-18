@@ -4,6 +4,7 @@ import ArrondissementPageLayout from './ArrondissementPageLayout';
 import ArrondissementSection from './ArrondissementSection';
 
 interface Paris15PageProps {
+  onBack: () => void;
   onQuoteRequest?: () => void;
   onPhotoboothDetails?: () => void;
   onAIAnimations?: () => void;
@@ -12,15 +13,15 @@ interface Paris15PageProps {
 }
 
 const Paris15Page: React.FC<Paris15PageProps> = ({
+  onBack,
   onQuoteRequest,
   onPhotoboothDetails,
   onAIAnimations,
-  onSEOPage,
-  arrondissementLinks,
-}) => {
+  onSEOPage, arrondissementLinks }) => {
   return (
     <ArrondissementPageLayout
       arrondissement={15}
+      onBack={onBack}
       onQuoteRequest={onQuoteRequest}
       onPhotoboothDetails={onPhotoboothDetails}
       onAIAnimations={onAIAnimations}
