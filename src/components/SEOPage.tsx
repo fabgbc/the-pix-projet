@@ -22,7 +22,7 @@ interface SEOPageProps {
   onQuoteRequest?: () => void;
   onPhotoboothDetails?: () => void;
   onAIAnimations?: () => void;
-  arrondissementLinks: { label: string; onClick: () => void }[];
+  arrondissementLinks: { label: string; path: string }[];
 }
 
 const SEOPage: React.FC<SEOPageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, arrondissementLinks}) => {
