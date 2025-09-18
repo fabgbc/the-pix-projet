@@ -1,9 +1,9 @@
 import React from 'react';
-import { Camera, Users, Sparkles, Heart, ArrowRight, Check } from 'lucide-react';
+import { Users, Sparkles, Heart, ArrowRight, Check } from 'lucide-react';
 import Footer from './Footer';
+import Header from './Header';
 
 interface ServicesPageProps {
-  onBack: () => void;
   onPhotoboothDetails: () => void;
   onPrivateEvents: () => void;
   onAIAnimations: () => void;
@@ -13,7 +13,6 @@ interface ServicesPageProps {
 }
 
 const ServicesPage: React.FC<ServicesPageProps> = ({
-  onBack,
   onPhotoboothDetails,
   onPrivateEvents,
   onAIAnimations,
@@ -23,43 +22,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({
 }) => {
   return (
     <div className="min-h-screen bg-white">
-      <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
-                <Camera className="w-6 h-6 text-black" />
-              </div>
-              <span className="text-2xl font-bold text-black">BoostPix</span>
-            </div>
-
-            <nav className="hidden lg:flex items-center space-x-8">
-              <button onClick={onBack} className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">
-                Accueil
-              </button>
-              <span className="text-yellow-500 font-medium cursor-default">Services</span>
-              <button
-                onClick={onPhotoboothDetails}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Photobooth sur mesure
-              </button>
-              <button onClick={onPrivateEvents} className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">
-                Événements Privés
-              </button>
-              <button onClick={onAIAnimations} className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">
-                Animations IA
-              </button>
-              <button
-                onClick={onQuoteRequest}
-                className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
-              >
-                Devis Gratuit
-              </button>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="pt-24">
         <section className="py-20 bg-gray-50">

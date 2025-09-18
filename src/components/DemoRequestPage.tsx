@@ -1,30 +1,17 @@
 import React, { useState } from 'react';
-import {
-  ArrowLeft,
-  Camera,
-  Sparkles,
-  Users,
-  Building,
-  Calendar,
-  MapPin,
-  Bot,
-  Check,
-  ChevronRight,
-  Phone,
-  Mail,
-  User
-} from 'lucide-react';
-import HomeSectionLink from './HomeSectionLink';
+import { Sparkles, Users, Building, Calendar, MapPin, Bot, Check, ChevronRight, Phone, Mail, User } from 'lucide-react';
 import Footer from './Footer';
+import Header from './Header';
+import { useRouter } from '../router';
 
 interface DemoRequestPageProps {
-  onBack: () => void;
   onSEOPage?: () => void;
   arrondissementLinks: { label: string; onClick: () => void }[];
   onQuoteRequest?: () => void;
 }
 
-const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, onQuoteRequest , arrondissementLinks }) => {
+const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onSEOPage, onQuoteRequest, arrondissementLinks }) => {
+  const { navigate } = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     demoType: '', // 'live' or 'video'
@@ -76,56 +63,7 @@ const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, on
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
-                <Camera className="w-6 h-6 text-black" />
-              </div>
-              <span className="text-2xl font-bold text-black">BoostPix</span>
-            </div>
-
-            <nav className="hidden lg:flex items-center space-x-8">
-              <button 
-                onClick={onBack}
-               className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-               Accueil
-              </button>
-              <button 
-                onClick={onBack}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Photobooth sur mesure
-              </button>
-              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
-              <button 
-                onClick={onBack}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Animations IA
-              </button>
-              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
-              <button 
-                onClick={onQuoteRequest}
-                className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
-              >
-                Devis Gratuit
-              </button>
-            </nav>
-
-            <button 
-              onClick={onBack}
-              className="lg:hidden flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Retour</span>
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Progress Steps */}
       <div className="bg-white border-b border-gray-200 mt-20">
@@ -417,8 +355,8 @@ const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, on
               </div>
             </div>
 
-            <button 
-              onClick={onBack}
+            <button
+              onClick={() => navigate('/')}
               className="bg-yellow-400 text-black px-8 py-4 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
             >
               Retour à l'accueil
