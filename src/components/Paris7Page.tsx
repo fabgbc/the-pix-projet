@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   ArrowLeft,
   Camera,
@@ -12,8 +12,8 @@ import {
   Settings,
   Monitor
 } from 'lucide-react';
-import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
+import NavigationMenu, { NavigationCallbacks } from './NavigationMenu';
 
 interface Paris7PageProps {
   onBack: () => void;
@@ -24,7 +24,24 @@ interface Paris7PageProps {
   arrondissementLinks: { label: string; onClick: () => void }[];
 }
 
-const Paris7Page: React.FC<Paris7PageProps> = ({ onBack, onQuoteRequest, onPhotoboothDetails, onAIAnimations, onSEOPage, arrondissementLinks }) => {
+const Paris7Page: React.FC<Paris7PageProps> = ({
+  onBack,
+  onQuoteRequest,
+  onPhotoboothDetails,
+  onAIAnimations,
+  onSEOPage,
+  arrondissementLinks,
+}) => {
+  const navigationCallbacks = useMemo<NavigationCallbacks>(
+    () => ({
+      '/': onBack,
+      ...(onPhotoboothDetails ? { '/location-photobooth-paris': onPhotoboothDetails } : {}),
+      ...(onAIAnimations ? { '/animations-photobooth-ia': onAIAnimations } : {}),
+      ...(onQuoteRequest ? { '/devis-photobooth-gratuit': onQuoteRequest } : {}),
+    }),
+    [onAIAnimations, onBack, onPhotoboothDetails, onQuoteRequest],
+  );
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -38,34 +55,7 @@ const Paris7Page: React.FC<Paris7PageProps> = ({ onBack, onQuoteRequest, onPhoto
               <span className="text-2xl font-bold text-black">BoostPix</span>
             </div>
 
-            <nav className="hidden lg:flex items-center space-x-8">
-              <button 
-                onClick={onBack}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Accueil
-              </button>
-              <button 
-                onClick={onPhotoboothDetails}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Photobooth sur mesure
-              </button>
-              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
-              <button 
-                onClick={onAIAnimations}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Animations IA
-              </button>
-              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
-              <button 
-                onClick={onQuoteRequest}
-                className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
-              >
-                Devis Gratuit
-              </button>
-            </nav>
+            <NavigationMenu className="hidden lg:flex" onNavigate={navigationCallbacks} />
 
             <button 
               onClick={onBack}

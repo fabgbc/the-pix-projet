@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   ArrowLeft,
   Camera,
@@ -14,8 +14,8 @@ import {
   Mail,
   User
 } from 'lucide-react';
-import HomeSectionLink from './HomeSectionLink';
 import Footer from './Footer';
+import NavigationMenu, { NavigationCallbacks } from './NavigationMenu';
 
 interface DemoRequestPageProps {
   onBack: () => void;
@@ -24,7 +24,7 @@ interface DemoRequestPageProps {
   onQuoteRequest?: () => void;
 }
 
-const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, onQuoteRequest , arrondissementLinks }) => {
+const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, onQuoteRequest, arrondissementLinks }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     demoType: '', // 'live' or 'video'
@@ -74,6 +74,14 @@ const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, on
     setCurrentStep(3);
   };
 
+  const navigationCallbacks = useMemo<NavigationCallbacks>(
+    () => ({
+      '/': onBack,
+      ...(onQuoteRequest ? { '/devis-photobooth-gratuit': onQuoteRequest } : {}),
+    }),
+    [onBack, onQuoteRequest],
+  );
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -87,34 +95,7 @@ const DemoRequestPage: React.FC<DemoRequestPageProps> = ({ onBack, onSEOPage, on
               <span className="text-2xl font-bold text-black">BoostPix</span>
             </div>
 
-            <nav className="hidden lg:flex items-center space-x-8">
-              <button 
-                onClick={onBack}
-               className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-               Accueil
-              </button>
-              <button 
-                onClick={onBack}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Photobooth sur mesure
-              </button>
-              <HomeSectionLink label="Événements Privés" targetId="mariages" onBack={onBack} />
-              <button 
-                onClick={onBack}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Animations IA
-              </button>
-              <HomeSectionLink label="Galerie" targetId="galerie" onBack={onBack} />
-              <button 
-                onClick={onQuoteRequest}
-                className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
-              >
-                Devis Gratuit
-              </button>
-            </nav>
+            <NavigationMenu className="hidden lg:flex" onNavigate={navigationCallbacks} />
 
             <button 
               onClick={onBack}

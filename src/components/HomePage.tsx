@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
   Camera,
   Sparkles,
@@ -12,6 +12,7 @@ import {
   Check,
 } from 'lucide-react';
 import Footer from './Footer';
+import NavigationMenu, { NavigationCallbacks } from './NavigationMenu';
 import { useRouter } from '../router';
 import { ARRONDISSEMENTS } from '../data/arrondissements';
 
@@ -28,10 +29,26 @@ const HomePage: React.FC = () => {
     [navigate],
   );
 
-  const handleNavigate = (path: string) => {
-    setIsMenuOpen(false);
-    navigate(path);
-  };
+  const handleNavigate = useCallback(
+    (path: string) => {
+      setIsMenuOpen(false);
+      navigate(path);
+    },
+    [navigate],
+  );
+
+  const navigationCallbacks = useMemo<NavigationCallbacks>(
+    () => ({
+      '/': () => handleNavigate('/'),
+      '/services': () => handleNavigate('/services'),
+      '/location-photobooth-paris': () => handleNavigate('/location-photobooth-paris'),
+      '/photobooth-evenement-paris': () => handleNavigate('/photobooth-evenement-paris'),
+      '/animations-photobooth-ia': () => handleNavigate('/animations-photobooth-ia'),
+      '/galerie-photobooth-paris': () => handleNavigate('/galerie-photobooth-paris'),
+      '/devis-photobooth-gratuit': () => handleNavigate('/devis-photobooth-gratuit'),
+    }),
+    [handleNavigate],
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -46,50 +63,11 @@ const HomePage: React.FC = () => {
               <span className="text-2xl font-bold text-black">BoostPix</span>
             </div>
 
-            <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Navigation principale">
-              <button
-                onClick={() => handleNavigate('/')}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Accueil
-              </button>
-              <button
-                onClick={() => handleNavigate('/services')}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => handleNavigate('/location-photobooth-paris')}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Photobooth sur mesure
-              </button>
-              <button
-                onClick={() => handleNavigate('/photobooth-evenement-paris')}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Événements Privés
-              </button>
-              <button
-                onClick={() => handleNavigate('/animations-photobooth-ia')}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Animations IA
-              </button>
-              <button
-                onClick={() => handleNavigate('/galerie-photobooth-paris')}
-                className="text-gray-700 hover:text-yellow-500 transition-colors font-medium"
-              >
-                Galerie
-              </button>
-              <button
-                onClick={() => handleNavigate('/devis-photobooth-gratuit')}
-                className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
-              >
-                Devis Gratuit
-              </button>
-            </nav>
+            <NavigationMenu
+              className="hidden lg:flex"
+              aria-label="Navigation principale"
+              onNavigate={navigationCallbacks}
+            />
 
             <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Ouvrir le menu">
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -99,50 +77,12 @@ const HomePage: React.FC = () => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="lg:hidden mt-4 pb-4 border-t border-gray-100">
-              <div className="flex flex-col space-y-4 pt-4">
-                <button
-                  onClick={() => handleNavigate('/')}
-                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
-                >
-                  Accueil
-                </button>
-                <button
-                  onClick={() => handleNavigate('/services')}
-                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
-                >
-                  Services
-                </button>
-                <button
-                  onClick={() => handleNavigate('/location-photobooth-paris')}
-                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
-                >
-                  Photobooth sur mesure
-                </button>
-                <button
-                  onClick={() => handleNavigate('/photobooth-evenement-paris')}
-                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
-                >
-                  Événements Privés
-                </button>
-                <button
-                  onClick={() => handleNavigate('/animations-photobooth-ia')}
-                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
-                >
-                  Animations IA
-                </button>
-                <button
-                  onClick={() => handleNavigate('/galerie-photobooth-paris')}
-                  className="text-gray-700 hover:text-yellow-500 transition-colors font-medium text-left"
-                >
-                  Galerie
-                </button>
-                <button
-                  onClick={() => handleNavigate('/devis-photobooth-gratuit')}
-                  className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold text-center"
-                >
-                  Devis Gratuit
-                </button>
-              </div>
+              <NavigationMenu
+                layout="vertical"
+                className="pt-4"
+                onNavigate={navigationCallbacks}
+                onItemClick={() => setIsMenuOpen(false)}
+              />
             </div>
           )}
         </div>
