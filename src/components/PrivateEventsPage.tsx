@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Camera, Heart, Sparkles, MapPin, Check } from 'lucide-react';
 import Footer from './Footer';
+import NavigationMenu, { NavigationCallbacks } from './NavigationMenu';
 
 interface PrivateEventsPageProps {
   onBack: () => void;
@@ -19,6 +20,16 @@ const PrivateEventsPage: React.FC<PrivateEventsPageProps> = ({
   onSEOPage,
   arrondissementLinks,
 }) => {
+  const navigationCallbacks = useMemo<NavigationCallbacks>(
+    () => ({
+      ...(onBack ? { '/': onBack } : {}),
+      ...(onPhotoboothDetails ? { '/location-photobooth-paris': onPhotoboothDetails } : {}),
+      ...(onAIAnimations ? { '/animations-photobooth-ia': onAIAnimations } : {}),
+      ...(onQuoteRequest ? { '/devis-photobooth-gratuit': onQuoteRequest } : {}),
+    }),
+    [onAIAnimations, onBack, onPhotoboothDetails, onQuoteRequest],
+  );
+
   return (
     <div className="min-h-screen bg-white">
       <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
@@ -31,24 +42,7 @@ const PrivateEventsPage: React.FC<PrivateEventsPageProps> = ({
               <span className="text-2xl font-bold text-black">BoostPix</span>
             </div>
 
-            <nav className="hidden lg:flex items-center space-x-8">
-              <button onClick={onBack} className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">
-                Accueil
-              </button>
-              <button onClick={onPhotoboothDetails} className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">
-                Photobooth sur mesure
-              </button>
-              <span className="text-yellow-500 font-medium cursor-default">Événements Privés</span>
-              <button onClick={onAIAnimations} className="text-gray-700 hover:text-yellow-500 transition-colors font-medium">
-                Animations IA
-              </button>
-              <button
-                onClick={onQuoteRequest}
-                className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-500 transition-colors font-semibold"
-              >
-                Devis Gratuit
-              </button>
-            </nav>
+            <NavigationMenu className="hidden lg:flex" onNavigate={navigationCallbacks} />
           </div>
         </div>
       </header>
