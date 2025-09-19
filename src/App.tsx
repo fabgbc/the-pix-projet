@@ -30,6 +30,7 @@ import Paris19Page from './components/Paris19Page';
 import Paris20Page from './components/Paris20Page';
 import SEOPage from './components/SEOPage';
 import CorporateEventBlogPage from './components/CorporateEventBlogPage';
+import TeamBuildingPhotoboothBlogPage from './components/TeamBuildingPhotoboothBlogPage';
 import BlogPage from './components/BlogPage';
 import { useRouter } from './router';
 import { ARRONDISSEMENTS } from './data/arrondissements';
@@ -262,6 +263,24 @@ const App: React.FC = () => {
           url={buildUrl('/le-photobooth-pour-votre-evenement-d-entreprise')}
         >
           <CorporateEventBlogPage
+            onBack={goHome}
+            onQuoteRequest={goQuote}
+            onPhotoboothDetails={goPhotobooth}
+            onAIAnimations={goAI}
+            onSEOPage={goSEO}
+            arrondissementLinks={arrondissementLinks}
+          />
+        </RouteWrapper>
+      );
+    }
+    case '/organiser-un-team-building-avec-un-photobooth-les-5-animations-a-realiser': {
+      return (
+        <RouteWrapper
+          title="Organiser un team building avec un photobooth : les 5 animations à réaliser - BoostPix"
+          description="Préparez un team building mémorable avec un photobooth BoostPix : conseils pratiques et cinq animations ludiques pour engager toutes vos équipes."
+          url={buildUrl('/organiser-un-team-building-avec-un-photobooth-les-5-animations-a-realiser')}
+        >
+          <TeamBuildingPhotoboothBlogPage
             onBack={goHome}
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}
