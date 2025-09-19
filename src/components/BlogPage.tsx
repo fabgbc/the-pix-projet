@@ -38,6 +38,15 @@ interface BlogArticle {
 
 const ARTICLES: BlogArticle[] = [
   {
+    title: 'Comment bien choisir le bon photobooth pour votre événement',
+    description:
+      'Comparez les formats, fonctionnalités et services pour sélectionner l’animation photo qui correspond à vos objectifs et à votre scénographie.',
+    category: 'Guide pratique',
+    readTime: 'Lecture 8 min',
+    publishedAt: 'Juillet 2024',
+    href: '/comment-bien-choisir-le-bon-photobooth-pour-votre-evenement',
+  },
+  {
     title: 'Quand a été inventé le photobooth ?',
     description:
       "Des cabines de Broadway aux événements parisiens, découvrez comment l'invention d'Anatol Josepho est devenue un incontournable pour les entreprises.",
