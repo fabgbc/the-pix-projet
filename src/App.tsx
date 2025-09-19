@@ -32,6 +32,7 @@ import SEOPage from './components/SEOPage';
 import CorporateEventBlogPage from './components/CorporateEventBlogPage';
 import TeamBuildingPhotoboothBlogPage from './components/TeamBuildingPhotoboothBlogPage';
 import PhotoboothTrendsBlogPage from './components/PhotoboothTrendsBlogPage';
+import PhotoboothHistoryBlogPage from './components/PhotoboothHistoryBlogPage';
 import BlogPage from './components/BlogPage';
 import { useRouter } from './router';
 import { ARRONDISSEMENTS } from './data/arrondissements';
@@ -253,6 +254,24 @@ const App: React.FC = () => {
           url={buildUrl('/devis-photobooth-gratuit')}
         >
           <QuotePage onBack={goHome} onSEOPage={goSEO} arrondissementLinks={arrondissementLinks} />
+        </RouteWrapper>
+      );
+    }
+    case '/quand-a-ete-invente-le-photobooth': {
+      return (
+        <RouteWrapper
+          title="Quand a été inventé le photobooth ? - BoostPix"
+          description="Retour sur l'invention du photobooth par Anatol Josepho, son essor culturel et la manière dont BoostPix fait vivre cet héritage lors de vos événements parisiens."
+          url={buildUrl('/quand-a-ete-invente-le-photobooth')}
+        >
+          <PhotoboothHistoryBlogPage
+            onBack={goHome}
+            onQuoteRequest={goQuote}
+            onPhotoboothDetails={goPhotobooth}
+            onAIAnimations={goAI}
+            onSEOPage={goSEO}
+            arrondissementLinks={arrondissementLinks}
+          />
         </RouteWrapper>
       );
     }
