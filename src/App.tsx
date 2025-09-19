@@ -31,6 +31,7 @@ import Paris20Page from './components/Paris20Page';
 import SEOPage from './components/SEOPage';
 import CorporateEventBlogPage from './components/CorporateEventBlogPage';
 import TeamBuildingPhotoboothBlogPage from './components/TeamBuildingPhotoboothBlogPage';
+import PhotoboothTrendsBlogPage from './components/PhotoboothTrendsBlogPage';
 import BlogPage from './components/BlogPage';
 import { useRouter } from './router';
 import { ARRONDISSEMENTS } from './data/arrondissements';
@@ -252,6 +253,24 @@ const App: React.FC = () => {
           url={buildUrl('/devis-photobooth-gratuit')}
         >
           <QuotePage onBack={goHome} onSEOPage={goSEO} arrondissementLinks={arrondissementLinks} />
+        </RouteWrapper>
+      );
+    }
+    case '/les-photobooths-2-0-les-tendances-a-venir-pour-vos-evenements': {
+      return (
+        <RouteWrapper
+          title="Les photobooths 2.0 : les tendances à venir pour vos événements - BoostPix"
+          description="Réalité augmentée, formats animés et IA : découvrez les innovations photobooth pour dynamiser vos événements d'entreprise à Paris."
+          url={buildUrl('/les-photobooths-2-0-les-tendances-a-venir-pour-vos-evenements')}
+        >
+          <PhotoboothTrendsBlogPage
+            onBack={goHome}
+            onQuoteRequest={goQuote}
+            onPhotoboothDetails={goPhotobooth}
+            onAIAnimations={goAI}
+            onSEOPage={goSEO}
+            arrondissementLinks={arrondissementLinks}
+          />
         </RouteWrapper>
       );
     }
