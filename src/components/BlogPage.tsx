@@ -38,6 +38,15 @@ interface BlogArticle {
 
 const ARTICLES: BlogArticle[] = [
   {
+    title: 'Les photobooths 2.0 : les tendances à venir pour vos événements',
+    description:
+      "Réalité augmentée, 360° et IA : un tour d'horizon des innovations qui transforment l'expérience photobooth pour vos soirées professionnelles.",
+    category: 'Tendance',
+    readTime: 'Lecture 7 min',
+    publishedAt: 'Mai 2024',
+    href: '/les-photobooths-2-0-les-tendances-a-venir-pour-vos-evenements',
+  },
+  {
     title: "Organiser un team building avec un photobooth : les 5 animations à réaliser",
     description:
       "Un guide complet pour préparer votre team building, fédérer vos équipes et imaginer cinq animations photobooth incontournables.",
