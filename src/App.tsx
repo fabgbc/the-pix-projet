@@ -33,6 +33,7 @@ import CorporateEventBlogPage from './components/CorporateEventBlogPage';
 import TeamBuildingPhotoboothBlogPage from './components/TeamBuildingPhotoboothBlogPage';
 import PhotoboothTrendsBlogPage from './components/PhotoboothTrendsBlogPage';
 import PhotoboothHistoryBlogPage from './components/PhotoboothHistoryBlogPage';
+import ChoosingPhotoboothBlogPage from './components/ChoosingPhotoboothBlogPage';
 import BlogPage from './components/BlogPage';
 import { useRouter } from './router';
 import { ARRONDISSEMENTS } from './data/arrondissements';
@@ -283,6 +284,24 @@ const App: React.FC = () => {
           url={buildUrl('/les-photobooths-2-0-les-tendances-a-venir-pour-vos-evenements')}
         >
           <PhotoboothTrendsBlogPage
+            onBack={goHome}
+            onQuoteRequest={goQuote}
+            onPhotoboothDetails={goPhotobooth}
+            onAIAnimations={goAI}
+            onSEOPage={goSEO}
+            arrondissementLinks={arrondissementLinks}
+          />
+        </RouteWrapper>
+      );
+    }
+    case '/comment-bien-choisir-le-bon-photobooth-pour-votre-evenement': {
+      return (
+        <RouteWrapper
+          title="Comment bien choisir le bon photobooth pour votre événement - BoostPix"
+          description="Comparez les types de photobooths, les fonctionnalités essentielles et les critères de sélection pour réussir votre événement à Paris avec BoostPix."
+          url={buildUrl('/comment-bien-choisir-le-bon-photobooth-pour-votre-evenement')}
+        >
+          <ChoosingPhotoboothBlogPage
             onBack={goHome}
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}
