@@ -38,6 +38,15 @@ interface BlogArticle {
 
 const ARTICLES: BlogArticle[] = [
   {
+    title: 'Quand a été inventé le photobooth ?',
+    description:
+      "Des cabines de Broadway aux événements parisiens, découvrez comment l'invention d'Anatol Josepho est devenue un incontournable pour les entreprises.",
+    category: 'Histoire',
+    readTime: 'Lecture 6 min',
+    publishedAt: 'Juin 2024',
+    href: '/quand-a-ete-invente-le-photobooth',
+  },
+  {
     title: 'Les photobooths 2.0 : les tendances à venir pour vos événements',
     description:
       "Réalité augmentée, 360° et IA : un tour d'horizon des innovations qui transforment l'expérience photobooth pour vos soirées professionnelles.",
