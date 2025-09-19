@@ -38,6 +38,15 @@ interface BlogArticle {
 
 const ARTICLES: BlogArticle[] = [
   {
+    title: "Organiser un team building avec un photobooth : les 5 animations à réaliser",
+    description:
+      "Un guide complet pour préparer votre team building, fédérer vos équipes et imaginer cinq animations photobooth incontournables.",
+    category: 'Team building',
+    readTime: 'Lecture 9 min',
+    publishedAt: 'Avril 2024',
+    href: '/organiser-un-team-building-avec-un-photobooth-les-5-animations-a-realiser',
+  },
+  {
     title: "Le photobooth pour votre événement d'entreprise",
     description:
       "Nos conseils pour concevoir une expérience photo qui renforce la cohésion de vos équipes et valorise votre image de marque.",
