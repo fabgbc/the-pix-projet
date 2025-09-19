@@ -22,6 +22,7 @@ interface SEOPageProps {
   onQuoteRequest?: () => void;
   onPhotoboothDetails?: () => void;
   onAIAnimations?: () => void;
+  onSEOPage?: () => void;
   arrondissementLinks: { label: string; onClick: () => void }[];
 }
 
@@ -30,16 +31,19 @@ const SEOPage: React.FC<SEOPageProps> = ({
   onQuoteRequest,
   onPhotoboothDetails,
   onAIAnimations,
+  onSEOPage,
   arrondissementLinks,
 }) => {
   const navigationCallbacks = useMemo<NavigationCallbacks>(
     () => ({
       '/': onBack,
-      ...(onPhotoboothDetails ? { '/location-photobooth-paris': onPhotoboothDetails } : {}),
+      ...((onPhotoboothDetails || onSEOPage)
+        ? { '/location-photobooth-paris': onPhotoboothDetails ?? onSEOPage }
+        : {}),
       ...(onAIAnimations ? { '/animations-photobooth-ia': onAIAnimations } : {}),
       ...(onQuoteRequest ? { '/devis-photobooth-gratuit': onQuoteRequest } : {}),
     }),
-    [onAIAnimations, onBack, onPhotoboothDetails, onQuoteRequest],
+    [onAIAnimations, onBack, onPhotoboothDetails, onQuoteRequest, onSEOPage],
   );
 
   return (
@@ -461,7 +465,7 @@ const SEOPage: React.FC<SEOPageProps> = ({
 
       {/* Footer */}
       <Footer
-        onSEOPage={onBack}
+        onSEOPage={onSEOPage}
         onPhotoboothDetails={onPhotoboothDetails}
         arrondissementLinks={arrondissementLinks}
       />
