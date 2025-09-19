@@ -30,6 +30,7 @@ import Paris19Page from './components/Paris19Page';
 import Paris20Page from './components/Paris20Page';
 import SEOPage from './components/SEOPage';
 import CorporateEventBlogPage from './components/CorporateEventBlogPage';
+import BlogPage from './components/BlogPage';
 import { useRouter } from './router';
 import { ARRONDISSEMENTS } from './data/arrondissements';
 import { PageMetadata, usePageMetadata } from './hooks/usePageMetadata';
@@ -261,6 +262,24 @@ const App: React.FC = () => {
           url={buildUrl('/le-photobooth-pour-votre-evenement-d-entreprise')}
         >
           <CorporateEventBlogPage
+            onBack={goHome}
+            onQuoteRequest={goQuote}
+            onPhotoboothDetails={goPhotobooth}
+            onAIAnimations={goAI}
+            onSEOPage={goSEO}
+            arrondissementLinks={arrondissementLinks}
+          />
+        </RouteWrapper>
+      );
+    }
+    case '/blog-photobooth-paris': {
+      return (
+        <RouteWrapper
+          title="Blog photobooth Paris - BoostPix"
+          description="Retrouvez les actualités, tendances et retours d'expérience autour du photobooth premium à Paris avec BoostPix."
+          url={buildUrl('/blog-photobooth-paris')}
+        >
+          <BlogPage
             onBack={goHome}
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}

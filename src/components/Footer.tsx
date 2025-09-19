@@ -1,5 +1,6 @@
 import React from 'react';
 import { Camera, Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Link } from '../router';
 
 interface FooterProps {
   onSEOPage?: () => void;
@@ -128,6 +129,9 @@ const Footer: React.FC<FooterProps> = ({ onSEOPage, onPhotoboothDetails, arrondi
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 mb-4 md:mb-0">&copy; 2024 BoostPix. Tous droits réservés.</p>
           <div className="flex space-x-6">
+            <Link to="/blog-photobooth-paris" className="text-gray-500 hover:text-yellow-500 transition-colors">
+              Blog
+            </Link>
             <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">Mentions légales</a>
             <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">Politique de confidentialité</a>
             <a href="#" className="text-gray-500 hover:text-yellow-500 transition-colors">CGV</a>
