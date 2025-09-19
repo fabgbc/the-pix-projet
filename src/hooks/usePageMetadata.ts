@@ -51,11 +51,11 @@ export const usePageMetadata = ({ title, description, url, image }: PageMetadata
 
     updateMetaTag('meta[name="twitter:title"]', 'content', title);
     updateMetaTag('meta[name="twitter:description"]', 'content', description);
-    updateMetaTag('meta[property="twitter:url"]', 'content', url);
+    updateMetaTag('meta[name="twitter:url"]', 'content', url);
 
     if (image) {
       updateMetaTag('meta[property="og:image"]', 'content', image);
-      updateMetaTag('meta[property="twitter:image"]', 'content', image);
+      updateMetaTag('meta[name="twitter:image"]', 'content', image);
     }
   }, [title, description, url, image]);
 };

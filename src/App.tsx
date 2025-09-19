@@ -6,7 +6,6 @@ import GalleryPage from './components/GalleryPage';
 import PhotoboothDetailsPage from './components/PhotoboothDetailsPage';
 import AIAnimationsPage from './components/AIAnimationsPage';
 import DemoRequestPage from './components/DemoRequestPage';
-import SEOPage from './components/SEOPage';
 import PhotographerAIPage from './components/PhotographerAIPage';
 import QuotePage from './components/QuotePage';
 import Paris1Page from './components/Paris1Page';
@@ -29,6 +28,8 @@ import Paris17Page from './components/Paris17Page';
 import Paris18Page from './components/Paris18Page';
 import Paris19Page from './components/Paris19Page';
 import Paris20Page from './components/Paris20Page';
+import SEOPage from './components/SEOPage';
+import CorporateEventBlogPage from './components/CorporateEventBlogPage';
 import { useRouter } from './router';
 import { ARRONDISSEMENTS } from './data/arrondissements';
 import { PageMetadata, usePageMetadata } from './hooks/usePageMetadata';
@@ -108,7 +109,7 @@ const App: React.FC = () => {
   const goPrivateEvents = useCallback(() => goTo('/photobooth-evenement-paris'), [goTo]);
   const goAI = useCallback(() => goTo('/animations-photobooth-ia'), [goTo]);
   const goQuote = useCallback(() => goTo('/devis-photobooth-gratuit'), [goTo]);
-  const goSEO = useCallback(() => goTo('/location-de-photobooth-a-paris-avec-the-pix'), [goTo]);
+  const goSEO = useCallback(() => goTo('/le-photobooth-pour-votre-evenement-d-entreprise'), [goTo]);
   const goDemo = useCallback(() => goTo('/demande-demo-photobooth'), [goTo]);
 
   const ArrondissementRoute: React.FC<{ number: number; Component: ArrondissementComponent }> = ({ number, Component }) => {
@@ -252,6 +253,24 @@ const App: React.FC = () => {
         </RouteWrapper>
       );
     }
+    case '/le-photobooth-pour-votre-evenement-d-entreprise': {
+      return (
+        <RouteWrapper
+          title="Le photobooth pour votre événement d'entreprise - BoostPix"
+          description="Découvrez comment un photobooth premium renforce la cohésion, la visibilité et la mémorisation de vos évènements d'entreprise à Paris."
+          url={buildUrl('/le-photobooth-pour-votre-evenement-d-entreprise')}
+        >
+          <CorporateEventBlogPage
+            onBack={goHome}
+            onQuoteRequest={goQuote}
+            onPhotoboothDetails={goPhotobooth}
+            onAIAnimations={goAI}
+            onSEOPage={goSEO}
+            arrondissementLinks={arrondissementLinks}
+          />
+        </RouteWrapper>
+      );
+    }
     case '/location-de-photobooth-a-paris-avec-the-pix': {
       return (
         <RouteWrapper
@@ -264,6 +283,7 @@ const App: React.FC = () => {
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}
             onAIAnimations={goAI}
+            onSEOPage={goSEO}
             arrondissementLinks={arrondissementLinks}
           />
         </RouteWrapper>

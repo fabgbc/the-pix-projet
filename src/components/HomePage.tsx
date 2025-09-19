@@ -386,7 +386,7 @@ const HomePage: React.FC = () => {
 
       <Footer
         onPhotoboothDetails={() => handleNavigate('/location-photobooth-paris')}
-        onSEOPage={() => handleNavigate('/location-de-photobooth-a-paris-avec-the-pix')}
+        onSEOPage={() => handleNavigate('/le-photobooth-pour-votre-evenement-d-entreprise')}
         arrondissementLinks={arrondissementLinks}
       />
     </div>
