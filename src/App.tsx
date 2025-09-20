@@ -30,6 +30,7 @@ import Paris19Page from './components/Paris19Page';
 import Paris20Page from './components/Paris20Page';
 import SEOPage from './components/SEOPage';
 import CorporateEventBlogPage from './components/CorporateEventBlogPage';
+import CorporateEveningPhotoboothBlogPage from './components/CorporateEveningPhotoboothBlogPage';
 import TeamBuildingPhotoboothBlogPage from './components/TeamBuildingPhotoboothBlogPage';
 import PhotoboothTrendsBlogPage from './components/PhotoboothTrendsBlogPage';
 import PhotoboothHistoryBlogPage from './components/PhotoboothHistoryBlogPage';
@@ -302,6 +303,24 @@ const App: React.FC = () => {
           url={buildUrl('/comment-bien-choisir-le-bon-photobooth-pour-votre-evenement')}
         >
           <ChoosingPhotoboothBlogPage
+            onBack={goHome}
+            onQuoteRequest={goQuote}
+            onPhotoboothDetails={goPhotobooth}
+            onAIAnimations={goAI}
+            onSEOPage={goSEO}
+            arrondissementLinks={arrondissementLinks}
+          />
+        </RouteWrapper>
+      );
+    }
+    case '/animer-soiree-entreprise-photobooth': {
+      return (
+        <RouteWrapper
+          title="Animer votre soirée d'entreprise avec un photobooth - BoostPix"
+          description="Conseils pour dynamiser vos soirées d'entreprise à Paris avec un photobooth : cohésion d'équipe, branding, logistique et engagement des collaborateurs."
+          url={buildUrl('/animer-soiree-entreprise-photobooth')}
+        >
+          <CorporateEveningPhotoboothBlogPage
             onBack={goHome}
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}
