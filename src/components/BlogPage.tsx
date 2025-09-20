@@ -38,6 +38,15 @@ interface BlogArticle {
 
 const ARTICLES: BlogArticle[] = [
   {
+    title: "Animer votre soirée d'entreprise avec un photobooth",
+    description:
+      "Comment transformer votre soirée professionnelle en expérience mémorable grâce à une animation photo personnalisée et engageante.",
+    category: "Événements d'entreprise",
+    readTime: 'Lecture 8 min',
+    publishedAt: 'Août 2024',
+    href: '/animer-soiree-entreprise-photobooth',
+  },
+  {
     title: 'Comment bien choisir le bon photobooth pour votre événement',
     description:
       'Comparez les formats, fonctionnalités et services pour sélectionner l’animation photo qui correspond à vos objectifs et à votre scénographie.',
