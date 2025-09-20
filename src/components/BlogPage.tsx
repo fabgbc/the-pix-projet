@@ -83,6 +83,15 @@ const ARTICLES: BlogArticle[] = [
     href: '/le-photobooth-pour-votre-evenement-d-entreprise',
   },
   {
+    title: "Animer une soirée d'entreprise avec un photobooth mémorable",
+    description:
+      "Transformez votre soirée corporate en expérience fédératrice grâce à une animation photobooth personnalisée, sociale et adaptée aux lieux parisiens.",
+    category: "Événements d'entreprise",
+    readTime: 'Lecture 7 min',
+    publishedAt: 'Septembre 2024',
+    href: '/animer-soiree-entreprise-photobooth',
+  },
+  {
     title: 'Animations IA : transformer vos événements parisiens',
     description:
       "Comment les effets génératifs et la personnalisation temps réel créent la surprise sur vos lancements de produit.",
