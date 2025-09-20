@@ -30,7 +30,6 @@ import Paris19Page from './components/Paris19Page';
 import Paris20Page from './components/Paris20Page';
 import SEOPage from './components/SEOPage';
 import CorporateEventBlogPage from './components/CorporateEventBlogPage';
-import CorporateEveningPhotoboothBlogPage from './components/CorporateEveningPhotoboothBlogPage';
 import TeamBuildingPhotoboothBlogPage from './components/TeamBuildingPhotoboothBlogPage';
 import PhotoboothTrendsBlogPage from './components/PhotoboothTrendsBlogPage';
 import PhotoboothHistoryBlogPage from './components/PhotoboothHistoryBlogPage';
@@ -321,25 +320,6 @@ const App: React.FC = () => {
           url={buildUrl('/le-photobooth-pour-votre-evenement-d-entreprise')}
         >
           <CorporateEventBlogPage
-            onBack={goHome}
-            onQuoteRequest={goQuote}
-            onPhotoboothDetails={goPhotobooth}
-            onAIAnimations={goAI}
-            onSEOPage={goSEO}
-            arrondissementLinks={arrondissementLinks}
-          />
-        </RouteWrapper>
-      );
-    }
-
-    case '/animer-soiree-entreprise-photobooth': {
-      return (
-        <RouteWrapper
-          title="Animer une soirée d'entreprise avec un photobooth - BoostPix"
-          description="Renforcez la cohésion, la motivation et l'image de marque de votre soirée corporate grâce à une animation photobooth connectée et personnalisée à Paris."
-          url={buildUrl('/animer-soiree-entreprise-photobooth')}
-        >
-          <CorporateEveningPhotoboothBlogPage
             onBack={goHome}
             onQuoteRequest={goQuote}
             onPhotoboothDetails={goPhotobooth}
